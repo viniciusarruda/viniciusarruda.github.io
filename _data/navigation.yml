@@ -2,7 +2,9 @@
   link: /
 - name: About
   link: /about/
-- name: Recipes
+- name: Blog
+  link: /recipes/
+- name: Projects
   link: /recipes/
 - name: Contact
   link: /contact/
