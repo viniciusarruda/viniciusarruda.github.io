@@ -73,7 +73,7 @@ ul.skills li:last-child{
         padding: 20px 50px;
 }
 .subpage { padding: 1cm;
-           border: 1px red solid;
+           border: 1px;
            height: 297mm;
 }
 
