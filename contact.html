@@ -4,7 +4,7 @@ title: Contact
 <h1>Contact</h1>
 <p class="editable">Get in touch with any feedback or questions about the recipes featured here.</p>
 
-<form method="POST" action="https://formspree.io/{{ site.data.email }}">
+<form action="https://formspree.io/{{ site.data.email }}" method="POST">
 	<input type="hidden" name="_to" value="{{ site.data.email }}" />
 	<input type="text" name="_gotcha" style="display: none;">
 
@@ -22,17 +22,12 @@ title: Contact
 	<div class="contain">
 		<div class="split">
 			<label for="email">Email Address</label>
-			<input type="email" name="email" id="email" required />
+			<input type="email" name="_replyto" id="email" required />
 		</div>
 
 		<div class="split">
 			<label for="subject">Subject</label>
-			<select id="subject" name="subject">
-				<option value="enquiry">Enquiry</option>
-				<option value="suggestion">Suggestion</option>
-				<option value="press">Press</option>
-				<option value="other">Other</option>
-			</select>
+			<input type="text" id="subject" name="subject" />
 		</div>
 	</div>
 
