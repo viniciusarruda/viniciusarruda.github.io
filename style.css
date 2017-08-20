@@ -11,7 +11,7 @@ body { margin: 0;
 /*
  Primary Rules
 */
-h1 { font-weight: 300;
+/*h1 { font-weight: 300;
      margin: 5px 0 0;
      font-size: 40px;
      color:#ba0018;
@@ -44,7 +44,8 @@ a { color: #ba0018;
 a:hover {
   background-color:#ba0018;
   color:#fff;
-}
+}*/
+
 .key:first-child { margin-left: 0 }
 .key { margin: 0 10px;
        position: relative;
