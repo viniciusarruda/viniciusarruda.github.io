@@ -3,8 +3,8 @@
 - name: About
   link: /about/
 - name: Blog
-  link: /recipes/
+  link: /blog/
 - name: Projects
-  link: /recipes/
+  link: /projects/
 - name: Contact
   link: /contact/
