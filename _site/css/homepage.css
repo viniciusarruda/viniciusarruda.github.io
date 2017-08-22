@@ -1,0 +1,30 @@
+.homepage {
+  width: 250px;
+  padding: 0 0 0 0;
+  margin: 0 auto; }
+  .homepage .author {
+    text-align: center; }
+    .homepage .author p {
+      padding: 0;
+      margin: 0; }
+    .homepage .author img {
+      width: 200px;
+      border-radius: 200px;
+      margin: 0 0 10px 0; }
+  .homepage .social-icons {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 0 0; }
+    .homepage .social-icons a {
+      padding: 3px;
+      text-decoration: none; }
+      .homepage .social-icons a:hover svg {
+        fill: #000; }
+    .homepage .social-icons svg {
+      width: 25px;
+      height: 25px;
+      fill: #999; }
+
+@media (min-width: 900px) {
+  .sidebar.push {
+    padding-top: 72px; } }
