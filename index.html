@@ -4,14 +4,10 @@ title: Home
 <section class="posts">
 	{% for post in paginator.posts %}
 		<article class="post">
-			{% include post-heading.html post=post %}
-			<div class="image">
-				<img src="{{ post.featured_image }}" alt="{{ post.title }}">
-			</div>
-
-			{{ post.excerpt }}
-
-			<p><a class="button" href="{{ post.url }}">Read more</a></p>
+			{% include post-heading-cover.html post=post %}
+			<a href="{{ post.url }}">
+				{{ post.abstract }}
+			</a>
 		</article>
 	{% endfor %}
 

@@ -1,4 +1,12 @@
 .post {
+	h2 a {
+		color: #000;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 	h1 a {
 		color: #000;
 		text-decoration: none;
@@ -8,8 +16,19 @@
 		}
 	}
 	time {
-		padding: 0 0 20px 0;
+		padding: 0 0 10px 0;
 		display: block;
+	}
+	h2 {
+    	margin-bottom: 0;
+	}
+	a {
+		color: #000;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 
 	.recipe-overview {

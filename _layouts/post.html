@@ -3,30 +3,9 @@ layout: default
 ---
 <article class="post">
 	{% include post-heading.html post=page post_page=true %}
-	<div class="image">
-		<img src="{{ page.featured_image }}" alt="{{ page.title }}">
-	</div>
 
 	<div class="recipe-body">
 		{{ content }}
-	</div>
-
-	<ul id="recipe" class="recipe-overview">
-		<li title="Servings">{% include recipe-icon.html icon="quantity" %}<span>{{ page.recipe.servings }}</span></li>
-		<li title="Prep Time">{% include recipe-icon.html icon="time" %}<span>{{ page.recipe.prep }}</span></li>
-		<li title="Cook Time">{% include recipe-icon.html icon="cook" %}<span>{{ page.recipe.cook }}</span></li>
-	</ul>
-
-	<div class="recipe-contents">
-		<div class="ingredients">
-			<h2>Ingredients</h2>
-			{{ page.recipe.ingredients_markdown | markdownify }}
-		</div>
-
-		<div class="directions">
-			<h2>Directions</h2>
-			{{ page.recipe.directions_markdown | markdownify }}
-		</div>
 	</div>
 
 	<div class="sharing">
@@ -39,9 +18,7 @@ layout: default
 	</div>
 
 	<div class="cta">
-		<h2>More delicious recipes</h2>
-		<p>This one of the many fanastic recipes available on this blog</p>
-		<div class="button"><a href="/recipes">Check out more recipes</a></div>
+		<div class="button"><a href="/blog">Check out more blog post</a></div>
 	</div>
 	{% if site.disqus_shortname and page.comments %}
 		<div id="disqus_thread"></div>

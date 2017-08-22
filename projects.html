@@ -2,19 +2,73 @@
 title: Projects
 image_view: true
 ---
-<h1>Projects</h1>
-
-
+<h1 style="margin-bottom: 0.5cm" >Projects</h1>
 
 {% if page.image_view %}
-	{% for category in site.categories.projects %}
-		<h2>{{ category[0] }}</h2>
-		<div class="recipes">
-			{% for recipe in category[1] %}
-				<div class="recipe" style="background-image: url('{{ recipe.featured_image }}')">
-					<a href="{{ recipe.url }}"><span>{{ recipe.title }}</span></a>
-				</div>
-			{% endfor %}
+
+	{% assign n = site.categories.projects | size %}
+	{% assign mod = n | modulo:2 %}
+	{% assign end = n | minus: 1 %}
+
+	{% if mod != 0 %}
+
+		{% assign last = end %}
+		{% assign end = end | minus: 1 %}
+
+	{% else %}
+
+		{% assign last = 0 %}
+
+	{% endif %}
+
+	{% assign end = end | divided_by: 2 %}
+	{% assign a = 0 %}
+	{% for i in (0..end) %}
+
+		<div class="post">
+			<div style="float: left; width: 45%; margin-right: 60px; text-align: justify;">
+				<h2 style="margin-bottom: 10px">
+					<a href="{{ site.categories.projects[a].url }}">
+						{{site.categories.projects[a].title}}
+					</a>
+				</h2>
+				<a href="{{ site.categories.projects[a].url }}">
+					{{ site.categories.projects[a].abstract }}
+				</a>
+			</div>
+
+			{% assign a = a | plus: 1 %}
+
+			<div style="float: left; width: 45%; text-align: justify;">
+				<h2 style="margin-bottom: 10px">
+					<a href="{{ site.categories.projects[a].url }}">
+						{{site.categories.projects[a].title}}
+					</a>
+				</h2>
+				<a href="{{ site.categories.projects[a].url }}">
+					{{ site.categories.projects[a].abstract }}
+				</a>
+			</div>
 		</div>
+
+		{% assign a = a | plus: 1 %}
+
 	{% endfor %}
+
+	{% if last != 0 %}
+		<div class="post">
+			<div style="float: left; width: 45%; margin-right: 60px; text-align: justify;">
+				<h2 style="margin-bottom: 10px">
+					<a href="{{ site.categories.projects[last].url }}">
+						{{site.categories.projects[last].title}}
+					</a>
+				</h2>
+				<a href="{{ site.categories.projects[a].url }}">
+					{{ site.categories.projects[a].abstract }}
+				</a>
+			</div>
+		</div>
+	{% endif %}
+
 {% endif %}
+

@@ -1,8 +1,7 @@
 ---
 date: 2017-01-06
 title: Lemon Cake
-categories:
-  - Cakes
+category: blog
 featured_image: https://source.unsplash.com/NAN22eh754c/1920x1200
 recipe:
   servings: 12 slices
