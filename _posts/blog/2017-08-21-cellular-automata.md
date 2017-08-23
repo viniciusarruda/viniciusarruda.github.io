@@ -23,7 +23,7 @@ Since there are 2×2×2=2^3=8 possible binary states for the three cells neighbo
 
 The evolution of a one-dimensional cellular automaton can be illustrated by starting with the initial state (generation zero) in the first row, the first generation on the second row, and so on. For example, the figure above illustrated the first 20 generations of the rule 30 elementary cellular automaton starting with a single black cell.
 
-Here is a link to download a simple code in C that prints a one-dimensional cellular automaton based on a input rule and the number of generations.
+[Here](https://github.com/viniciusarruda/cellular-automata/blob/master/one_dimensional.c) is a link to download a simple code in C that prints a one-dimensional cellular automaton based on a input rule and the number of generations.
 
 ## Two-Dimensional Cellular Automata
 
@@ -45,6 +45,6 @@ Below we have an example of game of life:
 
 Here are the links to download a simple code in C that generate the two-dimensional cellular automaton with the Game of Life’s rule.
 
-The link below is a code to generate a file with a grid, and you have to modify it by replacing the dashes with zeros  where you want. The dash is a dead cell and zero, is an alive cell. This file will be the first generation of Game of Life and will be given as input to other program[*1].
+[Here](https://github.com/viniciusarruda/cellular-automata/blob/master/generate_output_grid.c) is a code to generate a file with a grid, and you have to modify it by replacing the dashes with zeros  where you want. The dash is a dead cell and zero, is an alive cell. This file will be the first generation of Game of Life and will be given as input to other program.
 
-The link below is a simple code to a program[1] that receives as input a file with the start grid and the dimension of a grid. Note: To work , the dimension given to the program above have to be the same that this program.
+[Here](https://github.com/viniciusarruda/cellular-automata/blob/master/two_dimensional.c) is a simple code to a program that receives as input a file with the start grid and the dimension of a grid. Note: To work , the dimension given to the program above have to be the same that this program.
