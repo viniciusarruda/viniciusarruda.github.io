@@ -1,71 +1,28 @@
-# Treat
+# So Simple Theme
 
-Food/baking blog template for Jekyll. Browse through a [live demo](https://spring-bat.cloudvent.net/).
+Looking for a simple, responsive, theme for your Jekyll powered blog? Well look no further. Here be **So Simple Theme**, the followup to [**Minimal Mistakes**](http://mmistakes.github.io/minimal-mistakes/) -- by designer slash illustrator [Michael Rose](http://mademistakes.com).
 
-![Treat template screenshot](images/_screenshot.png)
+## Notable features:
 
-Treat was made by [CloudCannon](http://cloudcannon.com/), the Cloud CMS for Jekyll.
-Find more templates and themes at [Jekyll Tips](http://jekyll.tips/templates/).
+* Compatible with Jekyll 3 and GitHub Pages.
+* Responsive templates. Looks good on mobile, tablet, and desktop devices.
+* Gracefully degrading in older browsers. Compatible with Internet Explorer 9+ and all modern browsers.
+* Minimal embellishments and subtle animations.
+* Optional large feature images for posts and pages.
+* [Custom 404 page](http://mmistakes.github.io/so-simple-theme/404.html) to get you started.
+* Basic [search capabilities](https://github.com/mathaywarduk/jekyll-search)
+* Support for Disqus Comments
 
-Learn Jekyll with step-by-step tutorials and videos at [Jekyll Tips](http://jekyll.tips/).
+![screenshot of So Simple Theme](http://mmistakes.github.io/so-simple-theme/images/so-simple-theme-preview.jpg)
 
-## Features
+See a [live version of So Simple](http://mmistakes.github.io/so-simple-theme/) hosted on GitHub.
 
-* Contact form
-* Pre-built pages
-* Pre-styled components
-* Blog with pagination
-* Disqus comments for posts
-* Configurable sidebar
-* Optimised for editing in [CloudCannon](http://cloudcannon.com/)
-* RSS/Atom feed
-* SEO tags
-* Google Analytics
+---
 
-## Setup
+## Getting Started
 
-1. Add your site and author details in `_config.yml`.
-2. Add your Google Analytics, Disqus and MailChimp keys to `_config.yml`.
-3. Add your details to `_data/sidebar.yml`
-4. Get a workflow going to see your site's output (with [CloudCannon](https://app.cloudcannon.com/) or Jekyll locally).
+So Simple takes advantage of Sass and data files to make customizing easier and requires Jekyll 3.x.
 
-## Develop
+To learn how to install and use this theme check out the [Setup Guide](http://mmistakes.github.io/so-simple-theme/theme-setup/) for more information.
 
-Treat was built with [Jekyll](http://jekyllrb.com/) version 3.4.3, but should support newer versions as well.
-
-Install the dependencies with [Bundler](http://bundler.io/):
-
-~~~bash
-$ bundle install
-~~~
-
-Run `jekyll` commands through Bundler to ensure you're using the right versions:
-
-~~~bash
-$ bundle exec jekyll serve
-~~~
-
-## Editing
-
-Treat is already optimised for adding, updating and removing recipes, navigation, page content, and sidebar information in CloudCannon.
-
-### Posts/Recipes
-
-* Add, update or remove a post in the *Posts* collection.
-* The recipes page is organised by categories.
-* Change the defaults when new posts are created in `_posts/_defaults.md`.
-
-### Contact Form
-
-* Preconfigured to work with CloudCannon, but easily changed to another provider (e.g. [FormSpree](https://formspree.io/)).
-* Sends email to the address listed in company details.
-
-### Navigation
-
-* Exposed as a data file to give clients better access.
-* Set in the *Data* / *Navigation* section.
-
-### Footer
-
-* Exposed as a data file to give clients better access.
-* Set in the *Data* / *Footer* section.
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/mmistakes/so-simple-theme/trend.png)](https://bitdeli.com/free "Bitdeli Badge")

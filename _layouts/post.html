@@ -1,56 +1,75 @@
----
-layout: default
----
-<article class="post">
-	{% include post-heading.html post=page post_page=true %}
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+{% include head.html %}
+</head>
 
-	<div class="recipe-body">
-		{{ content }}
-	</div>
+<body id="post">
 
-	<div class="sharing">
-		{% assign share_url = page.url | absolute_url | cgi_escape %}
-		<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}">{% include social-icon.html icon="Facebook" %}</a>
-		<a class="twitter" href="https://twitter.com/intent/tweet?url={{ share_url }}&amp;text=I'm%20going%20to%20this%20event!">{% include social-icon.html icon="Twitter" %}</a>
-		<a class="google-plus" href="https://plus.google.com/share?url={{ share_url }}">{% include social-icon.html icon="Google Plus" %}</a>
-		<a class="pinterest" href="//pinterest.com/pin/create/link/?url={{ share_url }}&amp;description={{ page.description }}">{% include social-icon.html icon="Pinterest" %}</a>
-		<a class="email" href="mailto:?subject=I've%20found%20a%20great%20recipe&amp;body=Check%20it%20out%20-%20{{ share_url }}">{% include social-icon.html icon="Email" %}</a>
-	</div>
+{% include navigation-post.html %}
 
-	<div class="cta">
-		<div class="button"><a href="/blog">Check out more blog post</a></div>
-	</div>
-	{% if site.disqus_shortname and page.comments %}
-		<div id="disqus_thread"></div>
-		<script>
-			var disqus_shortname = '{{ site.disqus_shortname }}';
-			var disqus_config = function () {
-				this.page.url = "{{ page.url | prepend: site.url }}";
-				this.page.identifier = "{{ page.id }}";
-			};
-			(function() {  // DON'T EDIT BELOW THIS LINE
-				var d = document, s = d.createElement('script');
-				s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-				s.setAttribute('data-timestamp', +new Date());
-				(d.head || d.body).appendChild(s);
-			})();
-		</script>
-		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-	{% endif %}
-</article>
+<div id="main" role="main">
+  <article class="hentry">
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <ul class="entry-tags">
+          {% for tag in page.tags %}<li><a href="{{ site.url }}/tags/#{{ tag }}" title="Pages tagged {{ tag }}">{{ tag }}</a></li>{% endfor %}
+        </ul>
+        {% if page.link %}
+          <h1 class="entry-title"><a href="{{ page.link }}">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}{% endif %} <span class="link-arrow">&rarr;</span></a></h1>
+        {% else %}
+          <h1 class="entry-title">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}{% endif %}</h1>
+        {% endif %}
+      </header>
+      <footer class="entry-meta">
+        {% if page.author %}
+          {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %}
+        {% endif %}
+        {% if author.avatar contains 'http' %}
+          <img src="{{ author.avatar }}" class="bio-photo" alt="{{ author.name }} bio photo"/>
+        {% elsif author.avatar %}
+          <img src="{{ site.url }}/images/{{ author.avatar }}" class="bio-photo" alt="{{ author.name }} bio photo"/>
+        {% endif %}
+        <span class="author vcard">By <span class="fn">{{ author.name }}</span></span>
+        <span class="entry-date date published"><time datetime="{{ page.date | date_to_xmlschema }}"><i class="fa fa-calendar-o"></i> {{ page.date | date: "%B %d, %Y" }}</time></span>
+        {% if page.modified %}<span class="entry-date date modified"><time datetime="{{ page.modified }}"><i class="fa fa-pencil"></i> {{ page.modified | date: "%B %d, %Y" }}</time></span>{% endif %}
+        {% if site.owner.disqus-shortname and page.comments or site.comments %}<span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>{% endif %}
+        {% if page.share %}{% include social-share.html %}{% endif %}
+        {% if page.ads == true %}{% include ad-sidebar.html %}<!-- /.google-ads -->{% endif %}
+      </footer>
+      <div class="entry-content">
+        {{ content }}
+        {% if site.owner.disqus-shortname and page.comments or site.comments %}
+          <div id="disqus_thread"></div><!-- /#disqus_thread -->
+          {% include disqus-comments.html %}
+        {% endif %}
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      {% if page.previous %}
+        <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">Previous</a>
+      {% endif %}
+      {% if page.next %}
+        <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">Next</a>
+      {% endif %}
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script type="text/javascript" src="/js/jquery.imgPin.min.js"></script>
-<script>
-	$(function() {
-		$('.post img').imgPin();
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    {% include footer.html %}
+  </footer>
+</div><!-- /.footer-wrapper -->
 
-		$('a[href*=\\#]').on('click', function(event){
-			var el = $(this.hash);
-			if (el.length > 0) {
-				event.preventDefault();
-				$('html,body').animate({scrollTop:$(this.hash).offset().top - 50}, 500);
-			}
-		});
-	});
+{% include scripts.html %}
+
+</body>
+</html>
+
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
