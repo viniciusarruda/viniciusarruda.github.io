@@ -53,4 +53,4 @@ The link below is a code to generate a file with a grid, and you have to modify 
 
 The link below is a simple code to a program[1] that receives as input a file with the start grid and the dimension of a grid. Note: To work , the dimension given to the program above have to be the same that this program.
 
-<div markdown="0" style="text-align: center"><a href="https://github.com/viniciusarruda/cellular-automata" class="btn">CHECKOUT THE CODE ON GITHUB</a></div>
+<div markdown="0" style="text-align: center"><a href="https://github.com/viniciusarruda/cellular-automata" target="_blank" class="btn">CHECKOUT THE CODE ON GITHUB</a></div>
