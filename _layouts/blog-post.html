@@ -49,11 +49,25 @@
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
-      {% if page.previous %}
-        <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">Previous</a>
+      {% for post in site.categories.blog %}
+          {% if post.url == page.url %}
+              {% assign post_index0 = forloop.index0 %}
+              {% assign post_index1 = forloop.index %}
+          {% endif %}
+      {% endfor %}
+      {% for post in site.categories.blog %}
+          {% if post_index0 == forloop.index %}
+              {% assign next_post = post %}
+          {% endif %}
+          {% if post_index1 == forloop.index0 %}
+              {% assign prev_post = post %}
+          {% endif %}
+      {% endfor %}
+      {% if next_post %}
+          <a href="{{ site.url }}{{ next_post.url }}" class="btn" title="{{ next_post.title }}">Next</a>
       {% endif %}
-      {% if page.next %}
-        <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">Next</a>
+      {% if prev_post %}
+          <a href="{{ site.url }}{{ prev_post.url }}" class="btn" title="{{ prev_post.title }}">Previous</a>
       {% endif %}
     </nav><!-- /.pagination -->
   </article>

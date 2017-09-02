@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: blog-post
 title: Cellular Automata 
 excerpt: "A cellular automaton is a collection of cells on a grid of specified shape that evolves through a number of discrete time steps according to a set of rules based on the states of neighboring cells."
 categories: blog

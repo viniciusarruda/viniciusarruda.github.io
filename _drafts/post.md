@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: projects-post or blog-post
 title: Title of post
 excerpt: "short summary here."
 categories: projects or blog
