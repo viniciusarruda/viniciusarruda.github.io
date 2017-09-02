@@ -63,11 +63,11 @@
               {% assign prev_post = post %}
           {% endif %}
       {% endfor %}
-      {% if next_post %}
-          <a href="{{ site.url }}{{ next_post.url }}" class="btn" title="{{ next_post.title }}">Next</a>
-      {% endif %}
       {% if prev_post %}
           <a href="{{ site.url }}{{ prev_post.url }}" class="btn" title="{{ prev_post.title }}">Previous</a>
+      {% endif %}
+      {% if next_post %}
+          <a href="{{ site.url }}{{ next_post.url }}" class="btn" title="{{ next_post.title }}">Next</a>
       {% endif %}
     </nav><!-- /.pagination -->
   </article>
