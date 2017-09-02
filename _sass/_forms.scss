@@ -289,4 +289,11 @@ select:focus {
 
 	/* submit button */
 	#goog-wm-sb {}
+
+	/* my version for contact */
+	#goog-wm-qt-mine {
+		@include media($medium) {
+			width: 80%;
+		}
+	}
 }

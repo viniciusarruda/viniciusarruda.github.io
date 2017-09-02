@@ -40,3 +40,12 @@
 #goog-wm-sb {
   @extend .btn;
 }
+
+#goog-wm-qt-mine {
+  width: auto;
+  margin: 0;
+  padding: 8px 10px;
+  @include font-size(14);
+  border-width: 2px;
+  border-radius: $border-radius;
+}

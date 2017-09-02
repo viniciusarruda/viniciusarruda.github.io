@@ -1,6 +1,6 @@
 ---
 layout: home
-excerpt: "A simple and clean responsive Jekyll theme for words and photos."
+excerpt: "Undergraduate student of Computer Science at Federal University of Espírito Santo, with experience in machine learning and scientific research. Has as main interest artificial intelligence and neuroscience."
 search_omit: true
 ---
 
