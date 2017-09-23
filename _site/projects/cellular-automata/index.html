@@ -24,14 +24,14 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cellular Automata">
 <meta property="og:description" content="A cellular automaton is a collection of cells on a grid of specified shape that evolves through a number of discrete time steps according to a set of rules based on the states of neighboring cells.">
-<meta property="og:url" content="http://localhost:4000/blog/cellular-automata/">
+<meta property="og:url" content="http://localhost:4000/projects/cellular-automata/">
 <meta property="og:site_name" content="Vinicius Arruda">
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/blog/cellular-automata/">
+<link rel="canonical" href="http://localhost:4000/projects/cellular-automata/">
 <link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Vinicius Arruda Feed">
 
 <!-- https://t.co/dKP3o1e -->
@@ -89,9 +89,6 @@
 		    <li><a href="http://localhost:4000/about/" >About</a></li>
 		  
 		    
-		    <li><a href="http://localhost:4000/blog/" >Blog</a></li>
-		  
-		    
 		    <li><a href="http://localhost:4000/projects/" >Projects</a></li>
 		  
 		    
@@ -131,13 +128,13 @@
         <span class="entry-date date modified"><time datetime="2017-08-31"><i class="fa fa-pencil"></i> August 31, 2017</time></span>
         <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
         <span class="social-share-twitter">
-  <a href="https://twitter.com/intent/tweet?hashtags=cellular-automata,evolution&amp;text=Cellular%20Automata&amp;url=http://localhost:4000/blog/cellular-automata/" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
+  <a href="https://twitter.com/intent/tweet?hashtags=cellular-automata,evolution&amp;text=Cellular%20Automata&amp;url=http://localhost:4000/projects/cellular-automata/" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
 </span>
 <span class="social-share-facebook">
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/blog/cellular-automata/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/projects/cellular-automata/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
 </span>
 <span class="social-share-googleplus">
-  <a href="https://plus.google.com/share?url=http://localhost:4000/blog/cellular-automata/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
+  <a href="https://plus.google.com/share?url=http://localhost:4000/projects/cellular-automata/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
 </span>
 <!-- /.social-share -->
         
@@ -149,12 +146,12 @@
 
 <p>The simplest cellular automata is the one-dimensional. The construction rules of a one-dimensional cellular automata is based by the current state of a cell and his neighbors cells, where the neighbors are the cells to its right and to its left.</p>
 
-<p class="center"><img src="http://localhost:4000/images/elementaryca30rules_750.gif" alt="Unable to display image" />
+<p class="center-small-image"><img src="http://localhost:4000/images/elementaryca30rules_750.gif" alt="Unable to display image" />
 <br /><sub><em>One-dimensional rule 30.</em></sub></p>
 
 <p>Since there are 2×2×2=2^3=8 possible binary states for the three cells neighboring a given cell, there are a total of 2^8=256 one-dimensional cellular automata, each of which can be indexed with an 8-bit binary number (Wolfram 1983, 2002). For example, the table giving the evolution of rule 30 (30=00011110_2) is illustrated above.</p>
 
-<p class="center"><img src="http://localhost:4000/images/elementaryca30_1000.gif" alt="Unable to display image" />
+<p class="center-small-image"><img src="http://localhost:4000/images/elementaryca30_1000.gif" alt="Unable to display image" />
 <br /><sub><em>Evolution of rule 30.</em></sub></p>
 
 <p>The evolution of a one-dimensional cellular automaton can be illustrated by starting with the initial state (generation zero) in the first row, the first generation on the second row, and so on. For example, the figure above illustrated the first 20 generations of the rule 30 elementary cellular automaton starting with a single black cell.</p>
@@ -181,7 +178,7 @@
 
 <p>Below we have an example of game of life:</p>
 
-<p class="center"><img src="http://localhost:4000/images/cagif.gif" alt="Unable to display image" />
+<p class="center-small-image"><img src="http://localhost:4000/images/cagif.gif" alt="Unable to display image" />
 <br /><sub><em>Game of Life.</em></sub></p>
 
 <p>Here are the links to download a simple code in C that generate the two-dimensional cellular automaton with the Game of Life’s rule.</p>
@@ -190,7 +187,7 @@
 
 <p>The link below is a simple code to a program[1] that receives as input a file with the start grid and the dimension of a grid. Note: To work , the dimension given to the program above have to be the same that this program.</p>
 
-<div style="text-align: center"><a href="https://github.com/viniciusarruda/cellular-automata" class="btn">CHECKOUT THE CODE ON GITHUB</a></div>
+<div style="text-align: center"><a href="https://github.com/viniciusarruda/cellular-automata" target="_blank" class="btn">CHECKOUT THE CODE ON GITHUB</a></div>
 
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->
@@ -222,8 +219,12 @@
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="http://localhost:4000/projects/simplex/" class="btn" title="Simplex">Previous</a>
       
+      
+          <a href="http://localhost:4000/projects/simplex/" class="btn" title="Simplex">Previous</a>
+      
+      
+          <a href="http://localhost:4000/projects/genetic-algorithm/" class="btn" title="Genetic Algorithm">Next</a>
       
     </nav><!-- /.pagination -->
   </article>

@@ -16,9 +16,9 @@ sass:
   sass_dir: _sass
   style: compressed
 gems:
-  # - jekyll-sitemap
+  - jekyll-sitemap
+  - jekyll-feed
   # - jekyll-gist
-  # - jekyll-feed
 
 kramdown:
   input: GFM

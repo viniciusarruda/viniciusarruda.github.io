@@ -1,8 +1,8 @@
 ---
-layout: blog-post
+layout: projects-post
 title: Cellular Automata 
 excerpt: "A cellular automaton is a collection of cells on a grid of specified shape that evolves through a number of discrete time steps according to a set of rules based on the states of neighboring cells."
-categories: blog
+categories: projects
 tags: [cellular-automata, evolution]
 comments: true
 share: true
@@ -17,13 +17,13 @@ The simplest cellular automata is the one-dimensional. The construction rules of
 
 ![Unable to display image]({{ site.url }}/images/elementaryca30rules_750.gif)
 <br><sub>*One-dimensional rule 30.*</sub>
-{: .center}
+{: .center-small-image}
 
 Since there are 2×2×2=2^3=8 possible binary states for the three cells neighboring a given cell, there are a total of 2^8=256 one-dimensional cellular automata, each of which can be indexed with an 8-bit binary number (Wolfram 1983, 2002). For example, the table giving the evolution of rule 30 (30=00011110_2) is illustrated above.
 
 ![Unable to display image]({{ site.url }}/images/elementaryca30_1000.gif)
 <br><sub>*Evolution of rule 30.*</sub>
-{: .center}
+{: .center-small-image}
 
 The evolution of a one-dimensional cellular automaton can be illustrated by starting with the initial state (generation zero) in the first row, the first generation on the second row, and so on. For example, the figure above illustrated the first 20 generations of the rule 30 elementary cellular automaton starting with a single black cell.
 
@@ -45,7 +45,7 @@ Below we have an example of game of life:
 
 ![Unable to display image]({{ site.url }}/images/cagif.gif)
 <br><sub>*Game of Life.*</sub>
-{: .center}
+{: .center-small-image}
 
 Here are the links to download a simple code in C that generate the two-dimensional cellular automaton with the Game of Life’s rule.
 

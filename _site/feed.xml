@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-09-23T12:36:59-03:00</updated><id>http://localhost:4000/</id><title type="html">Vinicius Arruda</title><subtitle>My personal website.</subtitle><entry><title type="html">Genetic Algorithm</title><link href="http://localhost:4000/projects/genetic-algorithm/" rel="alternate" type="text/html" title="Genetic Algorithm" /><published>2017-09-19T00:00:00-03:00</published><updated>2017-09-19T00:00:00-03:00</updated><id>http://localhost:4000/projects/genetic-algorithm</id><content type="html" xml:base="http://localhost:4000/projects/genetic-algorithm/">&lt;h2 id=&quot;history&quot;&gt;History&lt;/h2&gt;
+
+&lt;p&gt;Created by &lt;strong&gt;John Holland&lt;/strong&gt; in 60s, was formally published in the book &lt;strong&gt;&lt;em&gt;Adaption in Natural and Artificial Systems (1975, MIT)&lt;/em&gt;&lt;/strong&gt;. Was inspired by the Darwin’s theory of evolution, where each individual is a possible solution, and it’s named as chromosome.&lt;/p&gt;
+
+&lt;h2 id=&quot;representation&quot;&gt;Representation&lt;/h2&gt;
+
+&lt;p&gt;Depending on the problem, the chromosome (individual), can be modeled as:&lt;/p&gt;
+
+&lt;p class=&quot;center-large-image&quot;&gt;&lt;img src=&quot;http://localhost:4000/images/GArepresentation.png&quot; alt=&quot;Unable to display image&quot; /&gt;
+&lt;br /&gt;&lt;sub&gt;&lt;em&gt;Some possible ways of representing the individual’s information in a chromosome.&lt;/em&gt;&lt;/sub&gt;&lt;/p&gt;
+
+&lt;p&gt;The problem of minimizing a function can has the individual modeled as a binary chromosome. A neural network can be trained using Genetic Algorithm by modeling the weights of it’s neurons as a chromosome of real values. The Travelling Salesman Problem (TSP) must be modeled as a permutation, where each number represents one possible city. An AST (Abstract Syntax Tree) can be used to generate code for some problem (better known as Genetic Programming). There are many ways to model a specific problem in a chromosome.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-algorithm&quot;&gt;The Algorithm&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;genetic_algorithm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;population&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;init_population&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;xrange&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;epochs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fitness&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;population&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;parents&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;selection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;offspring&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;crossover&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;offspring&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mutation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;offspring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;population&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parents&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;offspring&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;best&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;population&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;population-initialization&quot;&gt;Population Initialization&lt;/h4&gt;
+
+&lt;p&gt;Given &lt;script type=&quot;math/tex&quot;&gt;\,n\,&lt;/script&gt; as the number of desired individuals, this function must return a list of &lt;script type=&quot;math/tex&quot;&gt;\,n\,&lt;/script&gt; individuals.&lt;/p&gt;
+
+&lt;h4 id=&quot;fitness&quot;&gt;Fitness&lt;/h4&gt;
+
+&lt;p&gt;The fitness function evaluates each individual, giving to it a number representing its fitness.&lt;/p&gt;
+
+&lt;h4 id=&quot;selection&quot;&gt;Selection&lt;/h4&gt;
+
+&lt;p&gt;The selection function should select a number of better individuals from the population based on its fitness values. This number is selected empirically. For future explanation let’s call it as &lt;script type=&quot;math/tex&quot;&gt;\,\alpha\,&lt;/script&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;crossover&quot;&gt;Crossover&lt;/h4&gt;
+
+&lt;p&gt;With the &lt;script type=&quot;math/tex&quot;&gt;\alpha&lt;/script&gt; selected individuals, i.e. the parents. From them the offspring will be generated, somehow combining two random parental chromosomes.&lt;/p&gt;
+
+&lt;p&gt;Depending on the problem, there are many ways of combine them, a simpler way is to select the first &lt;script type=&quot;math/tex&quot;&gt;\,k\,&lt;/script&gt; elements of the first parent and &lt;script type=&quot;math/tex&quot;&gt;\ l-k\&lt;/script&gt; elements from the other parent where &lt;script type=&quot;math/tex&quot;&gt;\,l\,&lt;/script&gt; is the chromosome length.&lt;/p&gt;
+
+&lt;p&gt;But, this approach is a bit random, turning the algorithm into an inefficient random search. For example, it’s more acceptable to use the approach below as a crossover function for the TSP:&lt;/p&gt;
+
+&lt;p class=&quot;center-large-image&quot;&gt;&lt;img src=&quot;http://localhost:4000/images/Crossover.png&quot; alt=&quot;Unable to display image&quot; /&gt;
+&lt;br /&gt;&lt;sub&gt;&lt;em&gt;The Order Crossover: a more acceptable crossover for the TSP.&lt;/em&gt;&lt;/sub&gt;&lt;/p&gt;
+
+&lt;p&gt;Where it selects a random piece from the parent &lt;script type=&quot;math/tex&quot;&gt;\,A\,&lt;/script&gt; chromossome and then copies to the offspring in the same order and position, and to complete the offspring chromosome, is iterated on the parent &lt;script type=&quot;math/tex&quot;&gt;\,B\,&lt;/script&gt; chromosome, filling the offspring if that value is not yet present.&lt;/p&gt;
+
+&lt;p&gt;Note that should be generated &lt;script type=&quot;math/tex&quot;&gt;\ n - \alpha\&lt;/script&gt; offsprings from the parents to complete the original size of the population.&lt;/p&gt;
+
+&lt;h4 id=&quot;mutation&quot;&gt;Mutation&lt;/h4&gt;
+
+&lt;p&gt;To increase the search area, random perturbations are made on the offspring chromosomes, and again, it depends on the type of problem the way this is done.&lt;/p&gt;
+
+&lt;h2 id=&quot;source-codes&quot;&gt;Source Codes&lt;/h2&gt;
+
+&lt;h3 id=&quot;function-minimization&quot;&gt;Function Minimization&lt;/h3&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/1Gfvk9kLWZ4&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;In this animation, is shown the genetic algorithm optimizing the function:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;f(x, y) = - e^{-(x-1.5)^2 - (y+1)^2} - e^{-{x}^2 - {y}^2}&lt;/script&gt;
+
+&lt;p&gt;Is also possible to model anything to a function to be minimized. The below example is kind a silly, but shows how can be used, where it is desired to obtain the word &lt;code class=&quot;highlighter-rouge&quot;&gt;entscheidungsproblem&lt;/code&gt;.
+Below is the best individual at each epoch:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;EPOCH       FITNESS              CHROMOSOME
+#0            86            dktzmkeqixkmpzskjqjn
+#1            85            enstfgzpbwrcxoosnfbh
+#2            78            jetvbgqcbpceqtnnctdm
+#3            66            cpujjdaldsjhuuoraejn
+#4            55            enurcichvsoepthmckeh
+#5            44            enstfggohqnewnoncmkk
+#6            43            bosqbgigbwrculrqcmkm
+#7            38            enstfggohqnevqsqcmcj
+#8            38            enstfggohqnevqsqcmcj
+#9            36            enstdkfkdpnjxqxqalbl
+#10           32            eosqbhhibwmfzqspbhdp
+#11           27            enstbkbhetogvqsqcmcj
+#12           27            enstbkbhetogvqsqcmcj
+#13           25            enstbgcidypgwnunbmdl
+#14           23            enstcecidupgvqsqcmcj
+#15           21            enurcichdqneqosqcmdm
+#16           21            enurcichdqneqosqcmdm
+#17           17            enstfgcidtoesospbldn
+#18           14            enttceciduoesospbldn
+#19           14            enttceciduoesospbldn
+#20           14            enttceciduoesospbldn
+#21           10            enurcheidtoesospblel
+#22           10            enurcheidtoesospblel
+#23           10            enurcheidtoesospblel
+#24           10            enurcheidtoesospblel
+#25           10            enurcheidtoesospblel
+#26           9             enurcheidungvqrobjel
+#27           8             enurcheidwngsospblel
+#28           7             enttcieiduogsospblel
+#29           6             ensscheidungsospbldn
+#30           6             ensscheidungsospbldn
+#31           6             ensscheidungsospbldn
+#32           4             enttcheidungsospblem
+#33           4             enttcheidungsospblem
+#34           4             enttcheidungsospblem
+#35           3             entrcheiduogsoroblem
+#36           3             entrcheiduogsoroblem
+#37           2             enuscheidungsoroblem
+#38           1             entscheidungsoroblem
+#39           1             entscheidungsoroblem
+#40           1             entscheidungsoroblem
+#41           1             entscheidungsoroblem
+#42           1             entscheidungsoroblem
+#43           1             entscheidungsoroblem
+#44           1             entscheidungsoroblem
+#45           1             entscheidungsoroblem
+#46           1             entscheidungsoroblem
+#47           0             entscheidungsproblem
+#48           0             entscheidungsproblem
+#49           0             entscheidungsproblem
+#50           0             entscheidungsproblem
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;traveling-salesman-problem&quot;&gt;Traveling Salesman Problem&lt;/h3&gt;
+
+&lt;p class=&quot;center-small-image&quot;&gt;&lt;img src=&quot;http://localhost:4000/images/tsp_map.png&quot; alt=&quot;Unable to display image&quot; /&gt;
+&lt;br /&gt;&lt;sub&gt;&lt;em&gt;Map of the cities in sample data.&lt;/em&gt;&lt;/sub&gt;&lt;/p&gt;
+
+&lt;p&gt;The TSP was modeled using the permutation representation and using the order crossover. The sample data was taken from &lt;a href=&quot;https://developers.google.com/optimization/routing/tsp/tsp&quot;&gt;here&lt;/a&gt; and is shown as the distance matrix below, which represents the distance between the cities shown in the map above.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;city_distance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;   &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2451&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;713&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1018&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1631&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1374&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2408&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;213&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2571&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;875&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1420&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2145&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1972&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# New York&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2451&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;    &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1745&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1524&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;831&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1240&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;959&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2596&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;403&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1589&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1374&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;357&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;579&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Los Angeles&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;713&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1745&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;    &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;355&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;920&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;803&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1737&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;851&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1858&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;262&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;940&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1453&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1260&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Chicago&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1018&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1524&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;355&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;    &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;700&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;862&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1395&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1584&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;466&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1056&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1280&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;987&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Minneapolis&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1631&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;831&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;920&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;700&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;    &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;663&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1021&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1769&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;949&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;796&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;879&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;586&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;371&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Denver&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1374&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1240&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;803&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;862&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;663&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;    &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1681&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1551&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1765&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;547&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;225&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;887&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;999&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Dallas&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2408&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;959&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1737&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1395&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1021&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1681&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;    &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2493&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;678&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1724&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1891&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1114&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;701&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Seattle&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;213&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2596&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;851&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1769&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1551&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2493&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;    &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2699&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1038&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1605&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2300&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2099&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Boston&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2571&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;403&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1858&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1584&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;949&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1765&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;678&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2699&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;    &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1744&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1645&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;653&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# San Francisco&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;875&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1589&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;262&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;466&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;796&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;547&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1724&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1038&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1744&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;    &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;679&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1272&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1162&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# St. Louis&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1420&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1374&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;940&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1056&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;879&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;225&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1891&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1605&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1645&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;679&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;    &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1017&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Houston&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2145&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;357&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1453&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1280&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;586&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;887&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1114&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2300&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;653&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1272&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1017&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;    &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;504&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Phoenix&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1972&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;579&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1260&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;987&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;371&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;999&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;701&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2099&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1162&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;1200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;504&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;   &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Salt Lake City&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Running the genetic algorithm, the best individuals of each epoch and its fitness is shown below:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;EPOCH       FITNESS                            CHROMOSOME
+#0            10279           [8, 6, 12, 1, 11, 9, 2, 0, 7, 5, 10, 3, 4]
+#1            9972            [7, 0, 2, 9, 3, 5, 11, 6, 8, 1, 4, 12, 10]
+#2            9972            [7, 0, 2, 9, 3, 5, 11, 6, 8, 1, 4, 12, 10]
+#3            9759            [9, 2, 12, 11, 1, 8, 6, 4, 10, 5, 3, 7, 0]
+#4            9509            [8, 6, 1, 11, 4, 10, 5, 9, 7, 0, 2, 3, 12]
+#5            9309            [7, 0, 2, 4, 9, 3, 5, 10, 12, 11, 1, 8, 6]
+#6            9161            [0, 7, 3, 2, 9, 5, 10, 11, 6, 1, 8, 12, 4]
+#7            9161            [0, 7, 3, 2, 9, 5, 10, 11, 6, 1, 8, 12, 4]
+#8            9161            [0, 7, 3, 2, 9, 5, 10, 11, 6, 1, 8, 12, 4]
+#9            8605            [10, 5, 11, 1, 8, 6, 12, 4, 3, 7, 0, 2, 9]
+#10           8605            [10, 5, 11, 1, 8, 6, 12, 4, 3, 7, 0, 2, 9]
+#11           8605            [10, 5, 11, 1, 8, 6, 12, 4, 3, 7, 0, 2, 9]
+#12           8464            [6, 8, 11, 1, 12, 4, 3, 10, 5, 9, 2, 7, 0]
+#13           8464            [6, 8, 11, 1, 12, 4, 3, 10, 5, 9, 2, 7, 0]
+#14           8464            [6, 8, 11, 1, 12, 4, 3, 10, 5, 9, 2, 7, 0]
+#15           8464            [6, 8, 11, 1, 12, 4, 3, 10, 5, 9, 2, 7, 0]
+#16           8139            [0, 7, 2, 9, 5, 10, 3, 4, 12, 11, 1, 8, 6]
+#17           8139            [0, 7, 2, 9, 5, 10, 3, 4, 12, 11, 1, 8, 6]
+#18           8139            [0, 7, 2, 9, 5, 10, 3, 4, 12, 11, 1, 8, 6]
+#19           8139            [0, 7, 2, 9, 5, 10, 3, 4, 12, 11, 1, 8, 6]
+#20           8139            [0, 7, 2, 9, 5, 10, 3, 4, 12, 11, 1, 8, 6]
+#21           8139            [0, 7, 2, 9, 5, 10, 3, 4, 12, 11, 1, 8, 6]
+#22           7737            [6, 8, 1, 11, 12, 4, 5, 10, 9, 3, 2, 7, 0]
+#23           7737            [6, 8, 1, 11, 12, 4, 5, 10, 9, 3, 2, 7, 0]
+#24           7737            [6, 8, 1, 11, 12, 4, 5, 10, 9, 3, 2, 7, 0]
+#25           7599            [7, 0, 2, 3, 9, 10, 5, 4, 12, 11, 1, 8, 6]
+#26           7599            [7, 0, 2, 3, 9, 10, 5, 4, 12, 11, 1, 8, 6]
+#27           7599            [7, 0, 2, 3, 9, 10, 5, 4, 12, 11, 1, 8, 6]
+#28           7599            [7, 0, 2, 3, 9, 10, 5, 4, 12, 11, 1, 8, 6]
+#29           7599            [7, 0, 2, 3, 9, 10, 5, 4, 12, 11, 1, 8, 6]
+#30           7599            [7, 0, 2, 3, 9, 10, 5, 4, 12, 11, 1, 8, 6]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;art&quot;&gt;Art&lt;/h3&gt;
+
+&lt;p&gt;We can even make some art, by trying to imitate some paint. The below images was generated by a genetic algorithm where each individual has in its chromosome, the size, points and colors of one circle/polygon. The best individual is drawn. Then, another batch of epochs is performed with the updated image, trying to minimize the diference between the real image.&lt;/p&gt;
+
+&lt;p&gt;Using &lt;a href=&quot;https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/&quot;&gt;this&lt;/a&gt; work as inspiration, the source code in file &lt;code class=&quot;highlighter-rouge&quot;&gt;lena_circle.py&lt;/code&gt; tries to draw the picture of Lena with circles. One of the results is in the figure below:&lt;/p&gt;
+
+&lt;p class=&quot;center-small-image&quot;&gt;&lt;img src=&quot;http://localhost:4000/images/lena_circle.png&quot; alt=&quot;Unable to display image&quot; /&gt;
+&lt;br /&gt;&lt;sub&gt;&lt;em&gt;Result trying to draw the left image with circles.&lt;/em&gt;&lt;/sub&gt;&lt;/p&gt;
+
+&lt;p&gt;Instead of circles, the source code in file &lt;code class=&quot;highlighter-rouge&quot;&gt;lena_polygon.py&lt;/code&gt; uses polygons and one of the results is in the figure below:&lt;/p&gt;
+
+&lt;p class=&quot;center-small-image&quot;&gt;&lt;img src=&quot;http://localhost:4000/images/lena_polygon.png&quot; alt=&quot;Unable to display image&quot; /&gt;
+&lt;br /&gt;&lt;sub&gt;&lt;em&gt;Result trying to draw the left image with polygons.&lt;/em&gt;&lt;/sub&gt;&lt;/p&gt;
+
+&lt;p&gt;To obtain a more similar image, the algorithm must have its parameters altered, for example increasing the number of epochs and individuals, which will obviously lead to the algorithm taking more execution time.&lt;/p&gt;
+
+&lt;div style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://github.com/viniciusarruda/genetic-algorithm&quot; target=&quot;_blank&quot; class=&quot;btn&quot;&gt;CHECKOUT THE CODE ON GITHUB&lt;/a&gt;&lt;/div&gt;</content><author><name></name></author><category term="genetic-algorithm" /><category term="evolution" /><category term="bio-inspired" /><category term="python" /><summary type="html">Inspired by the Darwin's Theory Of Evolution, the genetic algorithm has the target problem modeled as a chromosome that evolves over the time.</summary></entry><entry><title type="html">Cellular Automata</title><link href="http://localhost:4000/projects/cellular-automata/" rel="alternate" type="text/html" title="Cellular Automata" /><published>2017-08-20T00:00:00-03:00</published><updated>2017-08-20T00:00:00-03:00</updated><id>http://localhost:4000/projects/cellular-automata</id><content type="html" xml:base="http://localhost:4000/projects/cellular-automata/">&lt;p&gt;A cellular automaton is a collection of cells on a grid of specified shape that evolves through a number of discrete time steps according to a set of rules based on the states of neighboring cells. The rules are then applied iteratively for as many time steps as desired. Von Neumann was one of the first people to consider such a model, and incorporated a cellular model into his “universal constructor.” Cellular automata were studied in the early 1950s as a possible model for biological systems. Comprehensive studies of cellular automata have been performed by S. Wolfram starting in the 1980s, and Wolfram’s fundamental research in the field culminated in the publication of his book A New Kind of Science(Wolfram 2002) in which Wolfram presents a gigantic collection of results concerning automata, among which are a number of groundbreaking new discoveries.&lt;/p&gt;
+
+&lt;h2 id=&quot;one-dimensional-cellular-automata&quot;&gt;One-Dimensional Cellular Automata&lt;/h2&gt;
+
+&lt;p&gt;The simplest cellular automata is the one-dimensional. The construction rules of a one-dimensional cellular automata is based by the current state of a cell and his neighbors cells, where the neighbors are the cells to its right and to its left.&lt;/p&gt;
+
+&lt;p class=&quot;center-small-image&quot;&gt;&lt;img src=&quot;http://localhost:4000/images/elementaryca30rules_750.gif&quot; alt=&quot;Unable to display image&quot; /&gt;
+&lt;br /&gt;&lt;sub&gt;&lt;em&gt;One-dimensional rule 30.&lt;/em&gt;&lt;/sub&gt;&lt;/p&gt;
+
+&lt;p&gt;Since there are 2×2×2=2^3=8 possible binary states for the three cells neighboring a given cell, there are a total of 2^8=256 one-dimensional cellular automata, each of which can be indexed with an 8-bit binary number (Wolfram 1983, 2002). For example, the table giving the evolution of rule 30 (30=00011110_2) is illustrated above.&lt;/p&gt;
+
+&lt;p class=&quot;center-small-image&quot;&gt;&lt;img src=&quot;http://localhost:4000/images/elementaryca30_1000.gif&quot; alt=&quot;Unable to display image&quot; /&gt;
+&lt;br /&gt;&lt;sub&gt;&lt;em&gt;Evolution of rule 30.&lt;/em&gt;&lt;/sub&gt;&lt;/p&gt;
+
+&lt;p&gt;The evolution of a one-dimensional cellular automaton can be illustrated by starting with the initial state (generation zero) in the first row, the first generation on the second row, and so on. For example, the figure above illustrated the first 20 generations of the rule 30 elementary cellular automaton starting with a single black cell.&lt;/p&gt;
+
+&lt;p&gt;Here is a link to download a simple code in C that prints a one-dimensional cellular automaton based on a input rule and the number of generations.&lt;/p&gt;
+
+&lt;h2 id=&quot;two-dimensional-cellular-automata&quot;&gt;Two-Dimensional Cellular Automata&lt;/h2&gt;
+
+&lt;p&gt;The game of life is the best-known two-dimensional cellular automaton, invented by John H. Conway.&lt;/p&gt;
+
+&lt;p&gt;The life cellular automaton is run by placing a number of filled cells on a two-dimensional grid. Each generation then switches cells on or off depending on the state of the cells that surround it. The rules are defined as follows. All eight of the cells surrounding the current one are checked to see if they are on or not. Any cells that are on are counted, and this count is then used to determine what will happen to the current cell.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Death: if the count is less than 2 or greater than 3, the current cell is switched off.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Survival: if the count is exactly 2, or the count is exactly 3 and the current cell is on, the current cell is left unchanged.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Birth: if the current cell is off and the count is exactly 3, the current cell is switched on.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Below we have an example of game of life:&lt;/p&gt;
+
+&lt;p class=&quot;center-small-image&quot;&gt;&lt;img src=&quot;http://localhost:4000/images/cagif.gif&quot; alt=&quot;Unable to display image&quot; /&gt;
+&lt;br /&gt;&lt;sub&gt;&lt;em&gt;Game of Life.&lt;/em&gt;&lt;/sub&gt;&lt;/p&gt;
+
+&lt;p&gt;Here are the links to download a simple code in C that generate the two-dimensional cellular automaton with the Game of Life’s rule.&lt;/p&gt;
+
+&lt;p&gt;The link below is a code to generate a file with a grid, and you have to modify it by replacing the dashes with zeros  where you want. The dash is a dead cell and zero, is an alive cell. This file will be the first generation of Game of Life and will be given as input to other program[*1].&lt;/p&gt;
+
+&lt;p&gt;The link below is a simple code to a program[1] that receives as input a file with the start grid and the dimension of a grid. Note: To work , the dimension given to the program above have to be the same that this program.&lt;/p&gt;
+
+&lt;div style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://github.com/viniciusarruda/cellular-automata&quot; target=&quot;_blank&quot; class=&quot;btn&quot;&gt;CHECKOUT THE CODE ON GITHUB&lt;/a&gt;&lt;/div&gt;</content><author><name></name></author><category term="cellular-automata" /><category term="evolution" /><summary type="html">A cellular automaton is a collection of cells on a grid of specified shape that evolves through a number of discrete time steps according to a set of rules based on the states of neighboring cells.</summary></entry><entry><title type="html">Simplex</title><link href="http://localhost:4000/projects/simplex/" rel="alternate" type="text/html" title="Simplex" /><published>2017-07-25T00:00:00-03:00</published><updated>2017-07-25T00:00:00-03:00</updated><id>http://localhost:4000/projects/simplex</id><content type="html" xml:base="http://localhost:4000/projects/simplex/">&lt;p&gt;This was an assignment of Linear Programming and Introduction to Optimization, and the aim was to write the simplex and two-phase simplex algorithms to solve linear programming problems.&lt;/p&gt;
+
+&lt;p&gt;The given linear problem must be in “standard form” as below:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+\text{minimize} \enspace z &amp;= cx \\
+\text{subject to:} \ \ \ \ \\
+Ax &amp;= b,\\
+\text{where:} \ \ \ \ \\
+b &amp;≥ 0,\ x ≥ 0,\ x ∈ \mathbb{R},\ c ∈ \mathbb{R},\ b ∈ \mathbb{R}\ \text{and}\ A_{m\times n}
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;The input file must be structured line by line as below:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;A key indicating the choice between simplex or two-phase simplex, being 1 for simplex and 2 for two-phase simplex.&lt;/li&gt;
+  &lt;li&gt;The number of lines followed by the number of columns that the matrix data above has.&lt;/li&gt;
+  &lt;li&gt;If key is 2, then the matrix must contain the line related to the artificial objective function and the columns related to the artificial variables.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;example-of-input&quot;&gt;Example of input&lt;/h2&gt;
+
+&lt;h4 id=&quot;simplex&quot;&gt;Simplex&lt;/h4&gt;
+
+&lt;p&gt;The linear programming problem below:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\text{minimize} \enspace z = 2x1 - 4x2 + 3x3 \\
+\begin{align*}
+\text{subject to:} \qquad \qquad \qquad \quad&amp;\\
+x1 + x2 + x3 &amp;\leq 4\\
+x2 - 3x3 &amp;\leq 3\\
+6x1 - x2 + x3 &amp;\leq 4\\
+x1, x2, x3 &amp;≥ 0
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Then, putting at the “standard form”:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\text{minimize} \enspace z = 2x1 - 4x2 + 3x3 \\
+\begin{align*}
+\text{subject to:} \qquad \qquad \qquad \quad&amp;\\
+x1 + x2 + x3 + x4 &amp;= 4\\
+x2 - 3x3 + x5 &amp;= 3\\
+6x1 - x2 + x3 + x6 &amp;= 4\\
+x1, x2, x3, x4, x5, x6 &amp;≥ 0
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Will give the respective input:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+&amp;1\\
+&amp;4\quad\enspace 7\\
+&amp;2\ -4\quad\enspace 3\quad\enspace 0\quad\enspace 0\quad\enspace 0\quad\enspace 0\\
+&amp;1\quad\enspace 1\quad\enspace 1\quad\enspace 1\quad\enspace 0\quad\enspace 0\quad\enspace 4\\
+&amp;0\quad\enspace 1\ -3\quad\enspace 0\quad\enspace 1\quad\enspace 0\quad\enspace 3\\
+&amp;6\ -1\quad\enspace 1\quad\enspace 0\quad\enspace 0\quad\enspace 1\quad\enspace 4
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;h4 id=&quot;two-phase-simplex&quot;&gt;Two-Phase Simplex&lt;/h4&gt;
+
+&lt;p&gt;The linear programming problem below:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\text{minimize} \enspace z = 2x1 - 4x2 + 3x3 \\
+\begin{align*}
+\text{subject to:} \qquad \qquad \qquad \quad&amp;\\
+x1 + x2 + x3 &amp;≤ 4\\
+x2 - 3x3 &amp;≤ 3\\
+6x1 - x2 + x3 &amp;≥ 4\\
+x1, x2, x3 &amp;≥ 0
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Then, putting at the “standard form”:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\text{minimize} \enspace z = 2x1 - 4x2 + 3x3 \\
+\begin{align*}
+\text{subject to:} \qquad \qquad \qquad \quad&amp;\\
+x1 + x2 + x3 + x4 &amp;= 4\\
+x2 - 3x3 + x5 &amp;= 3\\
+6x1 - x2 + x3 - x6 &amp;= 4\\
+x1, x2, x3, x4, x5, x6 &amp;≥ 0
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Then, we have the function &lt;script type=&quot;math/tex&quot;&gt;z^a = x1^a&lt;/script&gt;:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\text{minimize} \enspace z^a = x1^a \qquad \qquad \quad \\
+\text{minimize} \enspace z = 2x1 - 4x2 + 3x3 \\
+\begin{align*}
+\text{subject to:} \qquad \qquad \qquad \quad&amp;\\
+x1 + x2 + x3 + x4 &amp;= 4\\
+x2 - 3x3 + x5 &amp;= 3\\
+6x1 - x2 + x3 - x6 + x1^a &amp;= 4\\
+x1, x2, x3, x4, x5, x6,  x1^a &amp;≥ 0
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Will give the respective input:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+&amp;2\\
+&amp;5\enspace\quad 8\\
+&amp;0\enspace\quad 0\enspace\quad 0\enspace\quad 0\enspace\quad 0\enspace\quad 0\enspace\quad 1\enspace\quad 0\\
+&amp;2\ -4\enspace\quad 3\enspace\quad 0\enspace\quad 0\enspace\quad 0\enspace\quad 0\enspace\quad 0\\
+&amp;1\enspace\quad 1\enspace\quad 1\enspace\quad 1\enspace\quad 0\enspace\quad 0\enspace\quad 0\enspace\quad 4\\
+&amp;0\enspace\quad 1\ -3\enspace\quad 0\enspace\quad 1\enspace\quad 0\enspace\quad 0\enspace\quad 3\\
+&amp;6\ -1\enspace\quad 1\enspace\quad 0\enspace\quad 0\ -1\enspace\quad 1\enspace\quad 4\\
+\end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;how-to-run&quot;&gt;How to run&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Open the terminal.&lt;/li&gt;
+  &lt;li&gt;Got to the simplex directory.&lt;/li&gt;
+  &lt;li&gt;Run the command:
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python src/main.py &amp;lt;path of file with standard form&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;automatic-run&quot;&gt;Automatic run&lt;/h2&gt;
+
+&lt;p&gt;Run the script &lt;code class=&quot;highlighter-rouge&quot;&gt;run.sh&lt;/code&gt; as &lt;code class=&quot;highlighter-rouge&quot;&gt;bash run.sh&lt;/code&gt; to run all the files in &lt;code class=&quot;highlighter-rouge&quot;&gt;in&lt;/code&gt; directory, putting the output in &lt;code class=&quot;highlighter-rouge&quot;&gt;out&lt;/code&gt; directory with the same name.&lt;/p&gt;
+
+&lt;h2 id=&quot;adding-a-new-file&quot;&gt;Adding a new file&lt;/h2&gt;
+
+&lt;p&gt;If is desired to include a new file, just format it in “standard form” and name it as &lt;code class=&quot;highlighter-rouge&quot;&gt;file#&lt;/code&gt; where &lt;code class=&quot;highlighter-rouge&quot;&gt;#&lt;/code&gt; is the next non-existing number.&lt;/p&gt;
+
+&lt;div style=&quot;text-align: center&quot;&gt;&lt;a href=&quot;https://github.com/viniciusarruda/simplex&quot; target=&quot;_blank&quot; class=&quot;btn&quot;&gt;CHECKOUT THE CODE ON GITHUB&lt;/a&gt;&lt;/div&gt;</content><author><name></name></author><category term="linear-programming" /><category term="simplex" /><category term="python" /><summary type="html">Linear Programming and Introduction to Optimization Assignment: An implementation of simplex and two-phase simplex algorithms.</summary></entry></feed>
