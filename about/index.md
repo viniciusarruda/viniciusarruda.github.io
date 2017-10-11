@@ -11,6 +11,7 @@ title: About Me
 &diams; **Data Science**
 &diams; **Deep Learning**
 &diams; **Bio-inspired Computation**
+&diams; **Artificial Life**
 &diams; **Neuroscience**
 &diams; **Cognitive Science**
 &diams; **Research &amp; Development**

@@ -13,7 +13,7 @@ modified: 2017-09-23
 
 Created by **John Holland** in 60s, was formally published in the book ***Adaption in Natural and Artificial Systems (1975, MIT)***. Was inspired by the Darwin's theory of evolution, where each individual is a possible solution, and it's named as chromosome.
 
-## Representation
+## <a name="Representation"></a>Representation
 
 Depending on the problem, the chromosome (individual), can be modeled as:
 
@@ -21,7 +21,7 @@ Depending on the problem, the chromosome (individual), can be modeled as:
 <br><sub>*Some possible ways of representing the individual's information in a chromosome.*</sub>
 {: .center-large-image}
 
-The problem of minimizing a function can has the individual modeled as a binary chromosome. A neural network can be trained using Genetic Algorithm by modeling the weights of it's neurons as a chromosome of real values. The Travelling Salesman Problem (TSP) must be modeled as a permutation, where each number represents one possible city. An AST (Abstract Syntax Tree) can be used to generate code for some problem (better known as Genetic Programming). There are many ways to model a specific problem in a chromosome.
+The problem of minimizing a function can has the individual modeled as a binary chromosome. A neural network can be trained using Genetic Algorithm by modeling the weights of its neurons as a chromosome of real values. The Travelling Salesman Problem (TSP) must be modeled as a permutation, where each number represents one possible city. An AST (Abstract Syntax Tree) can be used to generate code for some problem (better known as Genetic Programming). There are many ways to model a specific problem in a chromosome.
 
 ## The Algorithm
 
