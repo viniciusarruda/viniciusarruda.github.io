@@ -3,7 +3,7 @@ layout: projects-post
 title: Cellular Automata 
 excerpt: "A cellular automaton is a collection of cells on a grid of specified shape that evolves through a number of discrete time steps according to a set of rules based on the states of neighboring cells."
 categories: projects
-tags: [cellular-automata, evolution]
+tags: [cellular-automata, evolution, C]
 comments: true
 share: true
 modified: 2018-02-08
@@ -44,5 +44,7 @@ Below we have an example of game of life:
 ![Unable to display image]({{ site.url }}/images/cagif.gif)
 <br><sub>*Game of Life.*</sub>
 {: .center-small-image}
+
+Checkout the code on github for one and two dimensional cellular automata.
 
 <div markdown="0" style="text-align: center"><a href="https://github.com/viniciusarruda/cellular-automata" target="_blank" class="btn">CHECKOUT THE CODE ON GITHUB</a></div>
