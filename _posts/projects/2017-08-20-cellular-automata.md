@@ -6,7 +6,7 @@ categories: projects
 tags: [cellular-automata, evolution]
 comments: true
 share: true
-modified: 2017-08-31
+modified: 2018-02-08
 ---
 
 A cellular automaton is a collection of cells on a grid of specified shape that evolves through a number of discrete time steps according to a set of rules based on the states of neighboring cells. The rules are then applied iteratively for as many time steps as desired. Von Neumann was one of the first people to consider such a model, and incorporated a cellular model into his “universal constructor.” Cellular automata were studied in the early 1950s as a possible model for biological systems. Comprehensive studies of cellular automata have been performed by S. Wolfram starting in the 1980s, and Wolfram’s fundamental research in the field culminated in the publication of his book A New Kind of Science(Wolfram 2002) in which Wolfram presents a gigantic collection of results concerning automata, among which are a number of groundbreaking new discoveries.
@@ -27,8 +27,6 @@ Since there are 2×2×2=2^3=8 possible binary states for the three cells neighbo
 
 The evolution of a one-dimensional cellular automaton can be illustrated by starting with the initial state (generation zero) in the first row, the first generation on the second row, and so on. For example, the figure above illustrated the first 20 generations of the rule 30 elementary cellular automaton starting with a single black cell.
 
-Here is a link to download a simple code in C that prints a one-dimensional cellular automaton based on a input rule and the number of generations.
-
 ## Two-Dimensional Cellular Automata
 
 The game of life is the best-known two-dimensional cellular automaton, invented by John H. Conway.
@@ -46,11 +44,5 @@ Below we have an example of game of life:
 ![Unable to display image]({{ site.url }}/images/cagif.gif)
 <br><sub>*Game of Life.*</sub>
 {: .center-small-image}
-
-Here are the links to download a simple code in C that generate the two-dimensional cellular automaton with the Game of Life’s rule.
-
-The link below is a code to generate a file with a grid, and you have to modify it by replacing the dashes with zeros  where you want. The dash is a dead cell and zero, is an alive cell. This file will be the first generation of Game of Life and will be given as input to other program[*1].
-
-The link below is a simple code to a program[1] that receives as input a file with the start grid and the dimension of a grid. Note: To work , the dimension given to the program above have to be the same that this program.
 
 <div markdown="0" style="text-align: center"><a href="https://github.com/viniciusarruda/cellular-automata" target="_blank" class="btn">CHECKOUT THE CODE ON GITHUB</a></div>
