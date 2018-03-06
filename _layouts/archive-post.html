@@ -49,13 +49,13 @@
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
-      {% for post in site.categories.projects %}
+      {% for post in site.categories.archive %}
           {% if post.url == page.url %}
               {% assign post_index0 = forloop.index0 %}
               {% assign post_index1 = forloop.index %}
           {% endif %}
       {% endfor %}
-      {% for post in site.categories.projects %}
+      {% for post in site.categories.archive %}
           {% if post_index0 == forloop.index %}
               {% assign next_post = post %}
           {% endif %}

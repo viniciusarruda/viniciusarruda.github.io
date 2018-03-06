@@ -1,8 +1,8 @@
 ---
-layout: projects-post
+layout: archive-post
 title: A Brief Introduction to Artificial Neural Networks
 excerpt: "An introduction to Artificial Neural Networks with some numerical examples to solve logical gates and a simple way of training a ANN with genetic algorithm to play the Flappy Bird game."
-categories: projects
+categories: archive
 tags: [artificial-intelligence, artificial-neural-networks, bio-inspired, python, pygame]
 comments: true
 share: true

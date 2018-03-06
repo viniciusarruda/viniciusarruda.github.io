@@ -1,8 +1,8 @@
 ---
-layout: projects-post
+layout: archive-post
 title: Genetic Algorithm
 excerpt: "Inspired by the Darwin's Theory Of Evolution, the genetic algorithm has the target problem modeled as a chromosome that evolves over the time."
-categories: projects
+categories: archive
 tags: [genetic-algorithm, evolution, bio-inspired, python]
 comments: true
 share: true

@@ -6,6 +6,7 @@ title: About Me
 ### Interests
 
 > **Artificial Intelligence**
+&diams; **Artificial General Intelligence**
 &diams; **Machine learning**
 &diams; **Artificial Neural Networks**
 &diams; **Data Science**
@@ -38,7 +39,7 @@ title: About Me
 ### Education
 
 > #### Computer Science <br> <sub><sup>2014 - 2018</sup></sub>
-**CR: 8.91/10.0** <br>
+**CR: 8.93/10.0** <br>
 [Federal University of Espírito Santo](http://www.ufes.br/){:target="_blank"}, Vitória, Brazil
 
 
