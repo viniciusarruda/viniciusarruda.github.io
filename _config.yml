@@ -2,8 +2,8 @@
 
 title: Vinicius Arruda
 locale: en_US
-description: My personal website.
-logo: author1.jpg
+description: #My personal website. (Ive deleted the rendering of this description)
+logo: author5.png
 search: true
 url: https://viniciusarruda.github.io
 
@@ -42,8 +42,10 @@ owner:
   disqus-shortname: vinicius-arruda
   twitter: #username
   facebook: #username
+  medium: viniciusarruda
   github: viniciusarruda
   stackexchange: https://stackexchange.com/users/3670793/viniciusarruda
+  stackoverflow: https://stackoverflow.com/users/3058060/viniciusarruda
   linkedin: viniciusarruda
   instagram: viniciusfarruda
   flickr: #username
