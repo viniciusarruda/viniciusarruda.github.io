@@ -11,6 +11,7 @@ title: About Me
 &diams; **Artificial Neural Networks**
 &diams; **Bio-inspired Computation**
 &diams; **Cognitive Science**
+&diams; **Computer Vision**
 &diams; **Deep Learning**
 &diams; **Neuroscience**
 &diams; **Research &amp; Development**
@@ -36,14 +37,6 @@ title: About Me
 
 ***
 
-### Languages
-
-> **Portuguese** -- native
-&diams; **English** -- advanced
-&diams; **German** -- beginner
-
-***
-
 ### Education
 
 > #### Computer Science <br> <sub><sup>2014 - 2018</sup></sub>
@@ -57,7 +50,7 @@ title: About Me
 [Federal Insitute of Espírito Santo](http://www.serra.ifes.edu.br/){:target="_blank"}, Serra, Brazil
 
 
-> #### Civil Engineering <br> <sub><sup>2010 - LOA</sup></sub>
+> #### Civil Engineering <br> <sub><sup>2010 - 2013 (Interrupted)</sup></sub>
 [University of Vila Velha](https://www.uvv.br/){:target="_blank"}, Vila Velha, Brazil
 
 ***
