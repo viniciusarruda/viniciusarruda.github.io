@@ -6,41 +6,42 @@ title: About Me
 ### Interests
 
 > **Artificial General Intelligence**
-&diams; **Artificial Intelligence**
-&diams; **Artificial Life**
-&diams; **Artificial Neural Networks**
-&diams; **Bio-inspired Computation**
-&diams; **Cognitive Science**
-&diams; **Computer Vision**
-&diams; **Deep Learning**
-&diams; **Neuroscience**
-&diams; **Research &amp; Development**
-&diams; **Visual Cognition**
+&bull; **Artificial Intelligence**
+&bull; **Artificial Life**
+&bull; **Artificial Neural Networks**
+&bull; **Bio-inspired Computation**
+&bull; **Cognitive Science**
+&bull; **Computer Vision**
+&bull; **Deep Learning**
+&bull; **Neuroscience**
+&bull; **Research &amp; Development**
+&bull; **Visual Cognition**
 
 ***
 
 ### Skills
 
 > **Artificial Neural Networks**
-&diams; **C**
-&diams; **Data Analysis**
-&diams; **GitHub**
-&diams; **Latex**
-&diams; **Linux**
-&diams; **Machine Learning**
-&diams; **MATLAB**
-&diams; **Metaheuristics**
-&diams; **Python**
-&diams; **Scientific Research**
-&diams; **TensorFlow**
-&diams; **Time Series Prediction**
+&bull; **C**
+&bull; **Data Analysis**
+&bull; **GitHub**
+&bull; **Latex**
+&bull; **Linux**
+&bull; **Machine Learning**
+&bull; **MATLAB**
+&bull; **Metaheuristics**
+&bull; **Python**
+&bull; **Scientific Research**
+&bull; **TensorFlow**
+&bull; **Time Series Prediction**
 
 ***
 
 ### Education
 
 > #### Computer Science <br> <sub><sup>2014 - 2018</sup></sub>
-**GPA: 9.01/10.0***<br>
+**GPA: 9.06/10.0***<br>
+**Undergraduate thesis: Improving cross-domain object detection using Unsupervised Image-to-Image Translation: Car detection in day to night images** <br>
 [Federal University of Espírito Santo](http://www.ufes.br/){:target="_blank"}, Vitória, Brazil
 <br><font size="1">*according to the brazilian criteria</font>
 
@@ -78,8 +79,8 @@ Research in artificial neural networks and metaheuristics, applied to time serie
 ### Hobbies
 
 > **Open Water Swimming**
-&diams; **Reading**
-&diams; **Trekking** 
+&bull; **Reading**
+&bull; **Trekking** 
 
 ***
 
