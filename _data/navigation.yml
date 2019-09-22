@@ -5,9 +5,9 @@
 
 - title: About
   url: /about/
-
-- title: Contact
-  url: /contact/
   
 - title: Blog
   url: https://medium.com/@viniciusarruda
+
+- title: Contact
+  url: /contact/
