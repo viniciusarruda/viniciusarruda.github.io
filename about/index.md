@@ -47,7 +47,7 @@ title: About Me
 
 > #### Internship <br> <sub><sup>March 2018 - May 2018</sup></sub>
 **Olho do Dono**  <br>
-Implementation and testing of image processing algorithms and convolutional neural networks applied to stereo images of cattle, in order to measure the cattle weight without the use of weight scale. During the internship it was used the programming languages Python and C++ with the libraries OpenCV and TensorFlow.
+Implementation and testing of image processing algorithms and convolutional neural networks applied to stereo images of cattle, in order to measure the cattle weight without the use of weight scale. During the internship it was used the programming languages Python and C++ with the libraries OpenCV and TensorFlow. Website [here](https://olhododono.agr.br/english/){:target="_blank"}.
 
 > #### Undergraduate Researcher <br> <sub><sup>May 2015 - November 2016</sup></sub>
 **Federal University of Espírito Santo**  <br>
