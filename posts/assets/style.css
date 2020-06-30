@@ -1,0 +1,108 @@
+/* Body */
+body {
+  /* background: #e3e5e8; */
+  background: #f4f4f4;
+  color: #ffffff;
+  /* font-family: 'Lato', Verdana, Helvetica, sans-serif; */
+  /* font-family: 'sans-serif'; */
+  font-family: 'Montserrat', sans-serif;
+  /* font-weight: 400; */
+  font-size: 12pt;
+}
+
+/* Hyperlinks */
+a {text-decoration: none;}
+a:link {color: #2581e0;}
+a:visited {color: #2581e0;}
+a:active {color: #2581e0;}
+a:hover {color: #174b7e;}
+
+
+/* Postpage Style */
+.postpage-top {
+  width: 768pt;
+  min-height: 100pt;
+  margin: 15pt auto;
+  padding: 20pt 20pt;
+  /* padding: 45pt 90pt; */
+  border: 1pt hidden #000;
+  text-align: justify;
+  /* color: #000000; */
+  color: #4F6071;
+  background: #f4f4f4;
+}
+
+/* Header (Title and Logo) */
+.postpage-top .header {
+  height: 170pt;
+  margin: 20pt 20pt 20pt 20pt; /* top right bottom left */
+}
+.postpage-top .header .title {
+  text-align: left;
+  font-size: 30pt;
+  /* font-weight: bold; */
+}
+
+.postpage-top .header .author {
+  /* margin: 5pt 0; */
+  text-align: left;
+  font-size: 15pt;
+}
+.postpage-top .header .date {
+  /* margin: 5pt 0; */
+  text-align: left;
+  font-size: 11pt;
+}
+
+.postpage-top .header .overview {
+  /* font-style: italic; */
+  margin-top: 10pt;
+  font-size: 13pt;
+  /* margin: 40pt 60pt 40pt 60pt;  top right bottom left */
+  /* margin: 40pt 150pt 40pt 20pt;  top right bottom left */
+}
+
+
+/* Postpage Style */
+.postpage {
+  width: 768pt;
+  min-height: 100pt;
+  margin: 15pt auto;
+  padding: 20pt 20pt;
+  padding-top: 0px;
+  /* padding: 45pt 90pt; */
+  border: 1pt hidden #000;
+  text-align: justify;
+  border-top: 3px solid #4f60712b;
+  /* color: #000000; */
+  color: #4F6071;
+  background: #ffffff;
+}
+
+/* section stuff */
+.postpage .section {
+  text-align: justify; /* just to not be empty */
+}
+.postpage .section .title {
+  text-align: left;
+  font-size: 24pt;
+  margin: 30pt 20pt 10pt 20pt; /* top right bottom left */
+}
+.postpage .section .subtitle {
+  text-align: left;
+  font-size: 16pt;
+  margin: 15pt 20pt 10pt 15pt; /* top right bottom left */
+}
+.postpage .section .body {
+  margin: 10pt 20pt 10pt 20pt;  /* top right bottom left */
+}
+
+.postpage .links {
+  text-align: center;
+  margin: 30pt 20pt 10pt 20pt; /* top right bottom left */
+}
+
+.caption {
+  padding-top: 5pt;
+  font-size: 10pt;
+}

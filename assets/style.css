@@ -1,0 +1,186 @@
+/* Body */
+body {
+  /* background: #e3e5e8; */
+  background: #f4f4f4;
+  color: #ffffff;
+  /* font-family: 'Lato', Verdana, Helvetica, sans-serif; */
+  font-family: 'Montserrat', sans-serif;
+  /* font-weight: 300; */
+  font-size: 12pt;
+}
+
+/* Hyperlinks */
+a {text-decoration: none;}
+a:link {color: #2581e0;}
+a:visited {color: #2581e0;}
+a:active {color: #2581e0;}
+a:hover {color: #174b7e;}
+
+/* Homepage-top Style */
+.homepage-top {
+  width: 768pt;
+  min-height: 100pt;
+  margin: 15pt auto;
+  padding: 20pt 20pt;
+  border: 1pt hidden #000;
+  text-align: justify;
+  /* color: #000000; */
+  color: #4F6071;
+  background: #f4f4f4;
+}
+
+/* Header (Title and Logo) */
+.homepage-top .header {
+  min-height: 170pt;
+  margin: 20pt 20pt 20pt 20pt; /* top right bottom left */
+  /* background-color: #4f60711b; */
+  /* outline: solid #4f60712b; */
+}
+.homepage-top .header .logo {
+  width: 170pt;
+  float: left;
+}
+.homepage-top .header .logo img {
+  width: 170pt;
+  object-fit: cover;
+  border-radius: 85pt;
+  /* border: 3px solid #ffffff; */
+  box-shadow: 1pt 1pt 2pt #888888;
+  -moz-box-shadow: 1pt 1pt 2pt #888888;
+  -webkit-box-shadow: 1pt 1pt 2pt #888888;
+}
+.homepage-top .header .title {
+  margin: 0 70pt 0 200pt;  /* top right bottom left */
+  padding-top: 40pt;
+  text-align: left;
+  font-size: 30pt;
+  /* font-weight: bold; */
+}
+.homepage-top .header .email {
+  margin: 0 70pt 0 200pt;  /* top right bottom left */
+  text-align: left;
+  font-size: 15pt;
+  font-style: italic;
+}
+.homepage-top .header .links {
+  margin: 0 70pt 0 200pt;  /* top right bottom left */
+  text-align: left;
+}
+
+/* Homepage Style */
+.homepage {
+  width: 768pt;
+  min-height: 100pt;
+  margin: 15pt auto;
+  padding: 20pt 20pt;
+  padding-top: 0px;
+  border: 1pt hidden #000;
+  border-top: 3px solid #4f60712b;
+  text-align: justify;
+  /* color: #000000; */
+  color: #4F6071;
+  background: #ffffff;
+}
+
+.homepage .section {
+  text-align: left;
+  font-size: 24pt;
+  /* font-weight: bold; */
+  margin: 30pt 20pt 10pt 20pt;  /* top right bottom left */
+}
+
+/* Bio */
+.homepage .bio {
+  margin: 10pt 20pt 10pt 20pt;  /*top right bottom left*/
+}
+
+/* Publications */
+.homepage .publication {
+  height: 120pt;
+  /* outline: thin solid #e1e1e1; */
+  outline: thin solid #4f60712b;
+  margin: 10pt 20pt 10pt 20pt; /* top right bottom left */
+}
+.homepage .publication img {
+  float: left;
+  width: 160pt;
+  height: 110pt;
+  margin: 5pt;
+  object-fit: cover;
+  border-radius: 6pt;
+  box-shadow: 1pt 1pt 2pt #888888;
+  -moz-box-shadow: 1pt 1pt 2pt #888888;
+  -webkit-box-shadow: 1pt 1pt 2pt #888888;
+}
+.homepage .publication .info {
+  margin: 10pt 20pt 0 180pt;  /* top right bottom left */
+  padding-top: 5pt;
+  text-align: left;
+}
+.homepage .publication .info .title {
+  font-weight: bold;
+}
+
+/* Posts */
+.homepage .post {
+  font-size: 12pt;
+  height: 70pt;
+  margin: 10pt 20pt 10pt 20pt;  /*top right bottom left*/
+  /* outline: thin solid #e1e1e1; */
+  outline: thin solid #4f60712b;
+}
+.homepage .post img {
+  float: left;
+  width: 120pt;
+  height: 60pt;
+  margin: 5pt;
+  object-fit: cover;
+  border-radius: 6pt;
+  box-shadow: 1pt 1pt 2pt #888888;
+  -moz-box-shadow: 1pt 1pt 2pt #888888;
+  -webkit-box-shadow: 1pt 1pt 2pt #888888;
+}
+.homepage .post .comment{
+  margin-left: 130pt;
+  margin-right: 20pt;
+  padding-left: 5pt;
+  padding-top: 5pt;
+  text-align: left;
+}
+
+/* Firula */
+.homepage .bio img {
+  display: none;
+}
+
+.homepage .bio .fake-link {
+    color: #2581e0;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.homepage .bio span.fake-link:hover {
+  color: #174b7e;
+  text-decoration: underline;
+}
+
+.homepage .bio span.fake-link:active img{
+  display: block;
+  margin-top: 20pt;
+}
+
+/* Quote */
+.homepage .quote {
+  font-size: 9.5pt;
+  font-style: italic;
+  text-align: right;
+  margin: 50pt 20pt 0pt 220pt;  /*top right bottom left*/
+}
+
+/* Giving the credit for the website */
+.homepage .credit {
+  font-size: 7.5pt;
+  font-style: italic;
+  text-align: right;
+  margin: 30pt 20pt 0pt 20pt;  /*top right bottom left*/
+}
