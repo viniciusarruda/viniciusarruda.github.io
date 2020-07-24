@@ -91,7 +91,7 @@ a:hover {color: #174b7e;}
 .postpage .section .subtitle {
   text-align: left;
   font-size: 16pt;
-  margin: 15pt 20pt 10pt 15pt; /* top right bottom left */
+  margin: 15pt 20pt 10pt 20pt; /* top right bottom left */
 }
 .postpage .section .body {
   margin: 10pt 20pt 10pt 20pt;  /* top right bottom left */
@@ -106,3 +106,25 @@ a:hover {color: #174b7e;}
   padding-top: 5pt;
   font-size: 10pt;
 }
+
+/* Comments Wrapper */
+.postpage .comments {
+  border-top: 3px solid #4f60712b;
+  text-align: justify; /* just to not be empty */
+}
+.postpage .comments .title {
+  text-align: left;
+  font-size: 24pt;
+  margin: 30pt 20pt 10pt 20pt; /* top right bottom left */
+}
+.postpage .comments .body {
+  margin: 10pt 20pt 10pt 20pt;  /* top right bottom left */
+}
+
+/* .comments { */
+  /* float: left; */
+  /* margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  clear: both;
+} */
