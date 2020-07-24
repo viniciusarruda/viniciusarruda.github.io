@@ -26,13 +26,24 @@
   <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon-96x96.png">
   <link href="./assets/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
-  <link href="./assets/style.css" rel="stylesheet" type="text/css">
+  <link href="../assets/style.css" rel="stylesheet" type="text/css">
 </head>
 <!-- === Header Ends === -->
 
 
 <body>
 
+<!-- 
+ Comments:
+  Explaining texture-biased models through XAI.
+  Intro: We know CNN models are data biased. [cite Adv. Attack]
+  Robert shown CNN are texture biased.
+  Extend his conclusions through visualization.
+  Use RISE (and similar methods) on cat-elephant image (and related as the furry-cup)
+  to see why it is classified as elephant.
+  Thain it with augmented using AdaIN (firstly, reproduce the paper results - acctually read the paper first) 
+  and recheck with the visualizations tools (such as RISE).
+-->
 
 <!-- === Postpage Starts === -->
 <div class="postpage-top">
@@ -40,13 +51,13 @@
   <!-- === Header Starts === -->
   <div class="header">
     <div class="title">  <!-- Set padding as 10 if title is with two lines. -->
-      A Brief Introduction<br>to Artificial Neural Networks
+      Explaining texture-biased CNNs<br>using XAI methods
     </div>
     <div class="author">
       <a href="https://viniciusarruda.github.io" target="_blank">Vinicius Arruda</a>
     </div>
     <div class="date">
-      Jun 24, 2020
+      Jul 03, 2020
     </div>
     <div class="overview">
       An introduction to Artificial Neural Networks with some numerical examples to solve logical gates and a simple way of training a ANN with genetic algorithm to play the Flappy Bird game.
@@ -60,7 +71,7 @@
 <div class="postpage">
 
   <div class="section">
-    <div class="title">Biological Neuron</div>
+    <div class="title">Convolutional Neural Networks are Biased - muito forte :|</div>
     <div class="body">
 
       <table width="100%" style="margin: 20pt 0; text-align: center;">
@@ -340,6 +351,15 @@
 </div>
 <!-- === Homepage Ends === -->
 
+<!-- === Comments by Utterances Starts === -->
+<script src="https://utteranc.es/client.js"
+  repo="viniciusarruda/blog-comments"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
+<!-- === Comments by Utterances Ends === -->
 
 </body>
 </html>
