@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+<!-- === Header Starts === -->
+<head>
+  <!-- Start of Google Analytics script -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ETXQ1DDGWY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ETXQ1DDGWY');
+  </script>
+  <!-- End of Google Analytics script -->
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Cellular Automata</title>
+
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon-96x96.png">
+  <link href="../assets/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+  <link href="../assets/style.css" rel="stylesheet" type="text/css">
+</head>
+<!-- === Header Ends === -->
+
+<body>
+
+<!-- === Postpage Starts === -->
+<div class="postpage-top">
+
+  <!-- === Header Starts === -->
+  <div class="header">
+    <div class="title">
+      Cellular Automata
+    </div>
+    <div class="author">
+      <a href="https://viniciusarruda.github.io" target="_blank">Vinicius Arruda</a>
+    </div>
+    <div class="date">
+      Aug 20, 2017
+    </div>
+    <div class="overview">
+      A cellular automaton is a collection of cells on a grid of specified shape that evolves through a number of discrete time steps according to a set of rules based on the states of neighboring cells.
+    </div>
+  <!-- === Header Ends === -->
+  </div>
+
+</div>
+
+<!-- === Postpage Starts === -->
+<div class="postpage">
+
+  <div class="section">
+    <div class="title">Introduction</div>
+    <div class="body">
+      A cellular automaton is a collection of cells on a grid of specified shape that evolves through a number of discrete time steps according to a set of rules based on the states of neighboring cells. The rules are then applied iteratively for as many time steps as desired. Von Neumann was one of the first people to consider such a model, and incorporated a cellular model into his "universal constructor." Cellular automata were studied in the early 1950s as a possible model for biological systems. Comprehensive studies of cellular automata have been performed by S. Wolfram starting in the 1980s, and Wolfram's fundamental research in the field culminated in the publication of his book A New Kind of Science (Wolfram 2002) in which Wolfram presents a gigantic collection of results concerning automata, among which are a number of groundbreaking new discoveries.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="title">One-Dimensional Cellular Automata</div>
+    <div class="body">
+      The simplest cellular automaton is one-dimensional. The construction rules of a one-dimensional cellular automaton are based on the current state of a cell and its neighboring cells, where the neighbors are the cells to its right and to its left.
+
+      <table width="100%" style="margin: 20pt 0; text-align: center;">
+        <tr>
+          <td><img src="images/elementaryca30rules_750.gif" width="70%"></td>
+        </tr>
+        <tr>
+          <td class="caption">One-dimensional rule 30.</td>
+        </tr>
+      </table>
+
+      Since there are 2 x 2 x 2 = 2^3 = 8 possible binary states for the three cells neighboring a given cell, there are a total of 2^8 = 256 one-dimensional cellular automata, each of which can be indexed with an 8-bit binary number (Wolfram 1983, 2002). For example, the table giving the evolution of rule 30 (30 = 00011110_2) is illustrated above.
+
+      <table width="100%" style="margin: 20pt 0; text-align: center;">
+        <tr>
+          <td><img src="images/elementaryca30_1000.gif" width="70%"></td>
+        </tr>
+        <tr>
+          <td class="caption">Evolution of rule 30.</td>
+        </tr>
+      </table>
+
+      The evolution of a one-dimensional cellular automaton can be illustrated by starting with the initial state (generation zero) in the first row, the first generation on the second row, and so on. For example, the figure above illustrated the first 20 generations of the rule 30 elementary cellular automaton starting with a single black cell.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="title">Two-Dimensional Cellular Automata</div>
+    <div class="body">
+      The best-known two-dimensional cellular automaton is the Game of Life, introduced by John H. Conway. This cellular automaton runs by placing a number of filled cells on a two-dimensional grid. For each generation, the cells switch on or off depending on the state of their surrounding cells. For a given cell, its eight neighboring cells have their states checked, counting the number of on cells. This amount is then used to determine what will happen to the current cell in the next time step according to the following rules:
+
+      <ol>
+        <li>Death: if the amount is less than 2 or greater than 3, the current cell is switched off.</li>
+        <li>Survival: if the amount is exactly 2, or the amount is exactly 3 and the current cell is on, the current cell is left unchanged.</li>
+        <li>Birth: if the current cell is off and the amount is exactly 3, the current cell is switched on.</li>
+      </ol>
+
+      Below we have an example of the Game of Life:
+
+      <table width="100%" style="margin: 20pt 0; text-align: center;">
+        <tr>
+          <td><img src="images/cagif.gif" width="70%"></td>
+        </tr>
+        <tr>
+          <td class="caption">Game of Life.</td>
+        </tr>
+      </table>
+
+      <br><br><br>
+      Checkout the
+      <a href="https://github.com/viniciusarruda/cellular-automata" target="_blank">code</a>
+      on GitHub for one- and two-dimensional cellular automata.
+    </div>
+  </div>
+
+  <div class="comments">
+    <div class="title">Comments</div>
+    <div class="body">
+    <!-- === Comments by Utterances Starts === -->
+      <script src="https://utteranc.es/client.js"
+        repo="viniciusarruda/blog-comments"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
+    <!-- === Comments by Utterances Ends === -->
+    </div>
+  </div>
+
+</div>
+<!-- === Homepage Ends === -->
+
+</body>
+</html>

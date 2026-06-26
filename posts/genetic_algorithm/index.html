@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+
+<!-- === Header Starts === -->
+<head>
+  <!-- Start of Google Analytics script -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ETXQ1DDGWY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ETXQ1DDGWY');
+  </script>
+  <!-- End of Google Analytics script -->
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+  <title>Genetic Algorithm</title>
+
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon-96x96.png">
+  <link href="../assets/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+  <link href="../assets/style.css" rel="stylesheet" type="text/css">
+</head>
+<!-- === Header Ends === -->
+
+<body>
+
+<!-- === Postpage Starts === -->
+<div class="postpage-top">
+
+  <!-- === Header Starts === -->
+  <div class="header">
+    <div class="title">
+      Genetic Algorithm
+    </div>
+    <div class="author">
+      <a href="https://viniciusarruda.github.io" target="_blank">Vinicius Arruda</a>
+    </div>
+    <div class="date">
+      Sep 19, 2017
+    </div>
+    <div class="overview">
+      Inspired by Darwin's theory of evolution, the genetic algorithm has the target problem modeled as a chromosome that evolves over time.
+    </div>
+  <!-- === Header Ends === -->
+  </div>
+
+</div>
+
+<!-- === Postpage Starts === -->
+<div class="postpage">
+
+  <div class="section">
+    <div class="title">History</div>
+    <div class="body">
+      Created by <b>John Holland</b> in the 1960s, it was formally published in the book <b><i>Adaptation in Natural and Artificial Systems (1975, MIT)</i></b>. It was inspired by Darwin's theory of evolution, where each individual is a possible solution, and it is called a chromosome.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="title">Representation</div>
+    <div class="body">
+      Depending on the problem, the chromosome (individual), can be modeled as:
+
+      <table width="100%" style="margin: 20pt 0; text-align: center;">
+        <tr>
+          <td><img src="images/GArepresentation.png" width="70%"></td>
+        </tr>
+        <tr>
+          <td class="caption">Some possible ways of representing the individual's information in a chromosome.</td>
+        </tr>
+      </table>
+
+      A function-minimization problem can model the individual as a binary chromosome. A neural network can be trained using Genetic Algorithm by modeling the weights of its neurons as a chromosome of real values. The Travelling Salesman Problem (TSP) must be modeled as a permutation, where each number represents one possible city. An AST (Abstract Syntax Tree) can be used to generate code for some problem (better known as Genetic Programming). There are many ways to model a specific problem in a chromosome.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="title">The Algorithm</div>
+    <div class="body">
+<pre><code>def genetic_algorithm(n):
+    population = init_population(n)
+    for _ in xrange(epochs):
+        fn = fitness(population)
+        parents = selection(n, fn)
+        offspring = crossover(parents)
+        offspring = mutation(offspring)
+        population = parents + offspring
+    return best(population)</code></pre>
+      <div class="code-caption">Pseudo-code of genetic algorithm.</div>
+    </div>
+
+    <div class="subtitle">Population Initialization</div>
+    <div class="body">
+      Given \(n\) as the number of desired individuals, this function must return a list of \(n\) individuals.
+    </div>
+
+    <div class="subtitle">Fitness</div>
+    <div class="body">
+      The fitness function evaluates each individual, giving to it a number representing its fitness.
+    </div>
+
+    <div class="subtitle">Selection</div>
+    <div class="body">
+      The selection function should select a number of better individuals from the population based on its fitness values. This number is selected empirically. For future explanation let's call it as \(\alpha\).
+    </div>
+
+    <div class="subtitle">Crossover</div>
+    <div class="body">
+      With the \(\alpha\) selected individuals, i.e. the parents. From them the offspring will be generated, somehow combining two random parental chromosomes.
+
+      Depending on the problem, there are many ways to combine them. A simpler way is to select the first \(k\) elements of the first parent and \(l-k\) elements from the other parent where \(l\) is the chromosome length.
+
+      But, this approach is a bit random, turning the algorithm into an inefficient random search. For example, it is more acceptable to use the approach below as a crossover function for the TSP:
+
+      <table width="100%" style="margin: 20pt 0; text-align: center;">
+        <tr>
+          <td><img src="images/Crossover.png" width="70%"></td>
+        </tr>
+        <tr>
+          <td class="caption">The Order Crossover: a more acceptable crossover for the TSP.</td>
+        </tr>
+      </table>
+
+      Where it selects a random piece from the parent \(A\) chromosome and then copies it to the offspring in the same order and position. To complete the offspring chromosome, the parent \(B\) chromosome is iterated over, filling the offspring if that value is not yet present.
+
+      Note that \(n - \alpha\) offspring should be generated from the parents to complete the original size of the population.
+    </div>
+
+    <div class="subtitle">Mutation</div>
+    <div class="body">
+      To increase the search area, random perturbations are made on the offspring chromosomes, and again, it depends on the type of problem the way this is done.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="title">Application Examples</div>
+    <div class="subtitle">Function Minimization</div>
+    <div class="body">
+      <table width="100%" style="margin: 20pt 0; text-align: center;">
+        <tr>
+          <td>
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/1Gfvk9kLWZ4" frameborder="0"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen></iframe>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="caption">Optimizing a function with genetic algorithm.</td>
+        </tr>
+      </table>
+
+      In this animation, the genetic algorithm is shown optimizing the function:
+
+      \[
+      f(x, y) = - e^{-(x-1.5)^2 - (y+1)^2} - e^{-{x}^2 - {y}^2}
+      \]
+
+      It is also possible to model anything as a function to be minimized. The example below is kind of silly, but shows how this can be used when the goal is to obtain the word <code>entscheidungsproblem</code>.
+      Below is the best individual at each epoch:
+
+<pre><code>EPOCH       FITNESS              CHROMOSOME
+#0            86            dktzmkeqixkmpzskjqjn
+#1            85            enstfgzpbwrcxoosnfbh
+#2            78            jetvbgqcbpceqtnnctdm
+#3            66            cpujjdaldsjhuuoraejn
+#4            55            enurcichvsoepthmckeh
+#5            44            enstfggohqnewnoncmkk
+#6            43            bosqbgigbwrculrqcmkm
+#7            38            enstfggohqnevqsqcmcj
+#8            38            enstfggohqnevqsqcmcj
+#9            36            enstdkfkdpnjxqxqalbl
+#10           32            eosqbhhibwmfzqspbhdp
+#11           27            enstbkbhetogvqsqcmcj
+#12           27            enstbkbhetogvqsqcmcj
+#13           25            enstbgcidypgwnunbmdl
+#14           23            enstcecidupgvqsqcmcj
+#15           21            enurcichdqneqosqcmdm
+#16           21            enurcichdqneqosqcmdm
+#17           17            enstfgcidtoesospbldn
+#18           14            enttceciduoesospbldn
+#19           14            enttceciduoesospbldn
+#20           14            enttceciduoesospbldn
+#21           10            enurcheidtoesospblel
+#22           10            enurcheidtoesospblel
+#23           10            enurcheidtoesospblel
+#24           10            enurcheidtoesospblel
+#25           10            enurcheidtoesospblel
+#26           9             enurcheidungvqrobjel
+#27           8             enurcheidwngsospblel
+#28           7             enttcieiduogsospblel
+#29           6             ensscheidungsospbldn
+#30           6             ensscheidungsospbldn
+#31           6             ensscheidungsospbldn
+#32           4             enttcheidungsospblem
+#33           4             enttcheidungsospblem
+#34           4             enttcheidungsospblem
+#35           3             entrcheiduogsoroblem
+#36           3             entrcheiduogsoroblem
+#37           2             enuscheidungsoroblem
+#38           1             entscheidungsoroblem
+#39           1             entscheidungsoroblem
+#40           1             entscheidungsoroblem
+#41           1             entscheidungsoroblem
+#42           1             entscheidungsoroblem
+#43           1             entscheidungsoroblem
+#44           1             entscheidungsoroblem
+#45           1             entscheidungsoroblem
+#46           1             entscheidungsoroblem
+#47           0             entscheidungsproblem
+#48           0             entscheidungsproblem
+#49           0             entscheidungsproblem
+#50           0             entscheidungsproblem</code></pre>
+      <div class="code-caption">Results of genetic algorithm.</div>
+    </div>
+
+    <div class="subtitle">Traveling Salesman Problem</div>
+    <div class="body">
+      <table width="100%" style="margin: 20pt 0; text-align: center;">
+        <tr>
+          <td><img src="images/tsp_map.png" width="70%"></td>
+        </tr>
+        <tr>
+          <td class="caption">Map of the cities in sample data.</td>
+        </tr>
+      </table>
+
+      The TSP was modeled using the permutation representation and using the order crossover. The sample data was taken from <a href="https://developers.google.com/optimization/routing/tsp/tsp" target="_blank">here</a> and is shown as the distance matrix below, which represents the distance between the cities shown in the map above.
+
+<pre><code>city_distance = [
+    [   0, 2451,  713, 1018, 1631, 1374, 2408,  213, 2571,  875, 1420, 2145, 1972], # New York
+    [2451,    0, 1745, 1524,  831, 1240,  959, 2596,  403, 1589, 1374,  357,  579], # Los Angeles
+    [ 713, 1745,    0,  355,  920,  803, 1737,  851, 1858,  262,  940, 1453, 1260], # Chicago
+    [1018, 1524,  355,    0,  700,  862, 1395, 1123, 1584,  466, 1056, 1280,  987], # Minneapolis
+    [1631,  831,  920,  700,    0,  663, 1021, 1769,  949,  796,  879,  586,  371], # Denver
+    [1374, 1240,  803,  862,  663,    0, 1681, 1551, 1765,  547,  225,  887,  999], # Dallas
+    [2408,  959, 1737, 1395, 1021, 1681,    0, 2493,  678, 1724, 1891, 1114,  701], # Seattle
+    [ 213, 2596,  851, 1123, 1769, 1551, 2493,    0, 2699, 1038, 1605, 2300, 2099], # Boston
+    [2571,  403, 1858, 1584,  949, 1765,  678, 2699,    0, 1744, 1645,  653,  600], # San Francisco
+    [ 875, 1589,  262,  466,  796,  547, 1724, 1038, 1744,    0,  679, 1272, 1162], # St. Louis
+    [1420, 1374,  940, 1056,  879,  225, 1891, 1605, 1645,  679,    0, 1017, 1200], # Houston
+    [2145,  357, 1453, 1280,  586,  887, 1114, 2300,  653, 1272, 1017,    0,  504], # Phoenix
+    [1972,  579, 1260,  987,  371,  999,  701, 2099,  600, 1162,  1200,  504,   0]] # Salt Lake City</code></pre>
+      <div class="code-caption">Distance matrix between some cities of USA.</div>
+
+      Running the genetic algorithm, the best individuals of each epoch and its fitness is shown below:
+
+<pre><code>EPOCH       FITNESS                            CHROMOSOME
+#0            10279           [8, 6, 12, 1, 11, 9, 2, 0, 7, 5, 10, 3, 4]
+#1            9972            [7, 0, 2, 9, 3, 5, 11, 6, 8, 1, 4, 12, 10]
+#2            9972            [7, 0, 2, 9, 3, 5, 11, 6, 8, 1, 4, 12, 10]
+#3            9759            [9, 2, 12, 11, 1, 8, 6, 4, 10, 5, 3, 7, 0]
+#4            9509            [8, 6, 1, 11, 4, 10, 5, 9, 7, 0, 2, 3, 12]
+#5            9309            [7, 0, 2, 4, 9, 3, 5, 10, 12, 11, 1, 8, 6]
+#6            9161            [0, 7, 3, 2, 9, 5, 10, 11, 6, 1, 8, 12, 4]
+#7            9161            [0, 7, 3, 2, 9, 5, 10, 11, 6, 1, 8, 12, 4]
+#8            9161            [0, 7, 3, 2, 9, 5, 10, 11, 6, 1, 8, 12, 4]
+#9            8605            [10, 5, 11, 1, 8, 6, 12, 4, 3, 7, 0, 2, 9]
+#10           8605            [10, 5, 11, 1, 8, 6, 12, 4, 3, 7, 0, 2, 9]
+#11           8605            [10, 5, 11, 1, 8, 6, 12, 4, 3, 7, 0, 2, 9]
+#12           8464            [6, 8, 11, 1, 12, 4, 3, 10, 5, 9, 2, 7, 0]
+#13           8464            [6, 8, 11, 1, 12, 4, 3, 10, 5, 9, 2, 7, 0]
+#14           8464            [6, 8, 11, 1, 12, 4, 3, 10, 5, 9, 2, 7, 0]
+#15           8464            [6, 8, 11, 1, 12, 4, 3, 10, 5, 9, 2, 7, 0]
+#16           8139            [0, 7, 2, 9, 5, 10, 3, 4, 12, 11, 1, 8, 6]
+#17           8139            [0, 7, 2, 9, 5, 10, 3, 4, 12, 11, 1, 8, 6]
+#18           8139            [0, 7, 2, 9, 5, 10, 3, 4, 12, 11, 1, 8, 6]
+#19           8139            [0, 7, 2, 9, 5, 10, 3, 4, 12, 11, 1, 8, 6]
+#20           8139            [0, 7, 2, 9, 5, 10, 3, 4, 12, 11, 1, 8, 6]
+#21           8139            [0, 7, 2, 9, 5, 10, 3, 4, 12, 11, 1, 8, 6]
+#22           7737            [6, 8, 1, 11, 12, 4, 5, 10, 9, 3, 2, 7, 0]
+#23           7737            [6, 8, 1, 11, 12, 4, 5, 10, 9, 3, 2, 7, 0]
+#24           7737            [6, 8, 1, 11, 12, 4, 5, 10, 9, 3, 2, 7, 0]
+#25           7599            [7, 0, 2, 3, 9, 10, 5, 4, 12, 11, 1, 8, 6]
+#26           7599            [7, 0, 2, 3, 9, 10, 5, 4, 12, 11, 1, 8, 6]
+#27           7599            [7, 0, 2, 3, 9, 10, 5, 4, 12, 11, 1, 8, 6]
+#28           7599            [7, 0, 2, 3, 9, 10, 5, 4, 12, 11, 1, 8, 6]
+#29           7599            [7, 0, 2, 3, 9, 10, 5, 4, 12, 11, 1, 8, 6]
+#30           7599            [7, 0, 2, 3, 9, 10, 5, 4, 12, 11, 1, 8, 6]</code></pre>
+      <div class="code-caption">Result of the genetic algorithm for the TSP problem.</div>
+    </div>
+
+    <div class="subtitle">Art</div>
+    <div class="body">
+      We can even make some art by trying to imitate a painting. The images below were generated by a genetic algorithm where each individual has in its chromosome the size, points and colors of one circle/polygon. The best individual is drawn. Then, another batch of epochs is performed with the updated image, trying to minimize the difference from the real image.
+
+      Using <a href="https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/" target="_blank">this</a> work as inspiration, the source code available <a href="https://github.com/viniciusarruda/genetic-algorithm/blob/master/src/Image/lena_circle.py" target="_blank">here</a> tries to draw the picture of Lena with circles. One of the results is in the figure below:
+
+      <table width="100%" style="margin: 20pt 0; text-align: center;">
+        <tr>
+          <td><img src="images/lena_circle.png" width="55%"></td>
+        </tr>
+        <tr>
+          <td class="caption">Result trying to draw the left image with circles.</td>
+        </tr>
+      </table>
+
+      Instead of circles, the source code available <a href="https://github.com/viniciusarruda/genetic-algorithm/blob/master/src/Image/lena_polygon.py" target="_blank">here</a> uses polygons and one of the results is in the figure below:
+
+      <table width="100%" style="margin: 20pt 0; text-align: center;">
+        <tr>
+          <td><img src="images/lena_polygon.png" width="55%"></td>
+        </tr>
+        <tr>
+          <td class="caption">Result trying to draw the left image with polygons.</td>
+        </tr>
+      </table>
+
+      To obtain a more similar image, the algorithm must have its parameters altered, for example increasing the number of epochs and individuals, which will obviously lead to the algorithm taking more execution time.
+
+      <br><br><br>
+      Checkout the
+      <a href="https://github.com/viniciusarruda/genetic-algorithm" target="_blank">code</a>
+      on GitHub.
+    </div>
+  </div>
+
+  <div class="comments">
+    <div class="title">Comments</div>
+    <div class="body">
+    <!-- === Comments by Utterances Starts === -->
+      <script src="https://utteranc.es/client.js"
+        repo="viniciusarruda/blog-comments"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+      </script>
+    <!-- === Comments by Utterances Ends === -->
+    </div>
+  </div>
+
+</div>
+<!-- === Homepage Ends === -->
+
+</body>
+</html>

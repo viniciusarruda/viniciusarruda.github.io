@@ -102,6 +102,45 @@ a:hover {color: #174b7e;}
   margin: 30pt 20pt 10pt 20pt; /* top right bottom left */
 }
 
+.postpage pre {
+  background: #f4f4f4;
+  border: 1pt solid #4f60712b;
+  color: #4F6071;
+  font-family: monospace;
+  font-size: 9.5pt;
+  line-height: 1.35;
+  margin: 20pt 0;
+  overflow-x: auto;
+  padding: 12pt;
+  text-align: left;
+  white-space: pre;
+}
+
+.postpage code {
+  font-family: monospace;
+}
+
+.postpage .code-caption {
+  font-size: 10pt;
+  margin: -12pt 0 20pt 0;
+  text-align: center;
+}
+
+.postpage .video-frame {
+  margin-bottom: 7pt;
+  padding-top: 56.25%;
+  position: relative;
+  text-align: center;
+}
+
+.postpage .video-frame iframe {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
 .caption {
   padding-top: 5pt;
   font-size: 10pt;
@@ -119,6 +158,11 @@ a:hover {color: #174b7e;}
 }
 .postpage .comments .body {
   margin: 0pt 20pt 0pt 20pt;  /* top right bottom left */
+}
+
+.postpage .comments .utterances,
+.postpage .comments .utterances-frame {
+  min-height: 260px;
 }
 
 /* .comments { */
