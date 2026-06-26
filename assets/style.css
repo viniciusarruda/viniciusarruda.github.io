@@ -124,7 +124,7 @@ a:hover {color: #174b7e;}
 /* Posts */
 .homepage .post {
   font-size: 12pt;
-  height: 70pt;
+  height: 85pt;
   margin: 10pt 20pt 10pt 20pt;  /*top right bottom left*/
   /* outline: thin solid #e1e1e1; */
   outline: thin solid #4f60712b;
@@ -132,7 +132,7 @@ a:hover {color: #174b7e;}
 .homepage .post img {
   float: left;
   width: 120pt;
-  height: 60pt;
+  height: 75pt;
   margin: 5pt;
   object-fit: cover;
   border-radius: 6pt;
@@ -146,6 +146,10 @@ a:hover {color: #174b7e;}
   padding-left: 5pt;
   padding-top: 5pt;
   text-align: left;
+}
+.homepage .post .comment .date {
+  color: #6d7a87;
+  font-size: 10pt;
 }
 
 /* Firula */
