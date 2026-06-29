@@ -1,0 +1,18 @@
+﻿Name,Type,Status,Tags,Date Added,Priority Score,Effort,Impact,Learning,Visibility,Longevity,Confidence,Normalized Value,Normalized Confidence,Normalized Effort
+Mancini Project,Research,In Progress,,,50%,5,5,5,5,5,5,1,1,1
+40 min JAX course implementing miniGPT,Study,Backlog,,,40%,2,3,3,2,4,5,0.5,1,0.25
+Train LLM - DeepMind quick course,Study,Backlog,,"March 6, 2026",40%,2,3,3,2,4,5,0.5,1,0.25
+Revisit flappy bird training with RL and post,Study,Backlog,,"March 25, 2026",37.5%,3,2,3,4,4,5,0.5625,1,0.5
+OpenClawzinho,Project,Backlog,,,34.375%,3,4,3,5,3,4,0.6875,0.75,0.5
+My Implementation of Codex/Claude Code,Project,Backlog,"Agent, LLM, NLP","February 26, 2026",34.375%,3,4,3,5,3,4,0.6875,0.75,0.5
+Implement dLLM,Project,Backlog,,"March 6, 2026",27.0833333333%,3,4,5,5,3,3,0.8125,0.5,0.5
+Andrej Stuff (TODO),Study,Backlog,,,26.7857142857%,4,3,4,2,5,4,0.625,0.75,0.75
+"Compare cows and camels ",Research,Backlog,,"March 18, 2026",24.1071428571%,4,2,3,4,4,4,0.5625,0.75,0.75
+Experiment diffusion visual model x dvlm representation,Research,Backlog,,"March 10, 2026",23.4375%,5,5,5,5,4,3,0.9375,0.5,1
+Implement Boids and create post,Project,Backlog,,"June 26, 2026",18.75%,3,2,2,2,4,4,0.375,0.75,0.5
+TODO write about soft req with ai with codex proj or antigravity,Project,Backlog,,,18.75%,3,3,2,5,3,3,0.5625,0.5,0.5
+Jordan Keller post -  reproduce and investigate,Research,Backlog,,,14.5833333333%,3,2,3,3,3,3,0.4375,0.5,0.5
+CLIP + diffusion + Opt. Transport for image editing,Research,Backlog,,,12.5%,5,5,5,5,5,2,1,0.25,1
+Wasserstein CycleGAN (Optimal Transport),Research,Backlog,"CV, DL","February 26, 2026",11.71875%,5,5,5,5,4,2,0.9375,0.25,1
+Browser Autofill Resume,Project,Backlog,,"March 10, 2026",9.375%,3,3,2,5,3,2,0.5625,0.25,0.5
+Evaluate vision models on psychology made objects,Research,Backlog,,"April 28, 2026",0%,5,3,4,4,4,1,0.6875,0,1

@@ -1,0 +1,18 @@
+﻿Name,Confidence,Date Added,Effort,Impact,Learning,Longevity,Normalized Confidence,Normalized Effort,Normalized Value,Priority Score,Status,Tags,Type,Visibility
+My Implementation of Codex/Claude Code,4,"February 26, 2026",3,4,3,3,0.75,0.5,0.6875,34.375%,Backlog,"Agent, LLM, NLP",Project,5
+Wasserstein CycleGAN (Optimal Transport),2,"February 26, 2026",5,5,5,4,0.25,1,0.9375,11.71875%,Backlog,"CV, DL",Research,5
+TODO write about soft req with ai with codex proj or antigravity,3,,3,3,2,3,0.5,0.5,0.5625,18.75%,Backlog,,Project,5
+OpenClawzinho,4,,3,4,3,3,0.75,0.5,0.6875,34.375%,Backlog,,Project,5
+Train LLM - DeepMind quick course,5,"March 6, 2026",2,3,3,4,1,0.25,0.5,40%,Backlog,,Study,2
+Implement dLLM,3,"March 6, 2026",3,4,5,3,0.5,0.5,0.8125,27.0833333333%,Backlog,,Project,5
+Andrej Stuff (TODO),4,,4,3,4,5,0.75,0.75,0.625,26.7857142857%,Backlog,,Study,2
+40 min JAX course implementing miniGPT,5,,2,3,3,4,1,0.25,0.5,40%,Backlog,,Study,2
+Browser Autofill Resume,2,"March 10, 2026",3,3,2,3,0.25,0.5,0.5625,9.375%,Backlog,,Project,5
+Experiment diffusion visual model x dvlm representation,3,"March 10, 2026",5,5,5,4,0.5,1,0.9375,23.4375%,Backlog,,Research,5
+"Compare cows and camels ",4,"March 18, 2026",4,2,3,4,0.75,0.75,0.5625,24.1071428571%,Backlog,,Research,4
+Revisit flappy bird training with RL and post,5,"March 25, 2026",3,2,3,4,1,0.5,0.5625,37.5%,Backlog,,Study,4
+Jordan Keller post -  reproduce and investigate,3,,3,2,3,3,0.5,0.5,0.4375,14.5833333333%,Backlog,,Research,3
+Evaluate vision models on psychology made objects,1,"April 28, 2026",5,3,4,4,0,1,0.6875,0%,Backlog,,Research,4
+Mancini Project,5,,5,5,5,5,1,1,1,50%,In Progress,,Research,5
+CLIP + diffusion + Opt. Transport for image editing,2,,5,5,5,5,0.25,1,1,12.5%,Backlog,,Research,5
+Implement Boids and create post,4,"June 26, 2026",3,2,2,4,0.75,0.5,0.375,18.75%,Backlog,,Project,2

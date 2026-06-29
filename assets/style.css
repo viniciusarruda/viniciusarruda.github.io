@@ -7,6 +7,11 @@ body {
   font-family: 'Montserrat', sans-serif;
   /* font-weight: 300; */
   font-size: 12pt;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 /* Hyperlinks */
@@ -18,10 +23,11 @@ a:hover {color: #174b7e;}
 
 /* Homepage-top Style */
 .homepage-top {
-  width: 768pt;
+  width: calc(100% - 30pt);
+  max-width: 768pt;
   min-height: 100pt;
-  margin: 15pt auto;
-  padding: 20pt 20pt;
+  margin: 24pt auto 8pt auto;
+  padding: 10pt 20pt;
   border: 1pt hidden #000;
   text-align: justify;
   /* color: #000000; */
@@ -32,7 +38,7 @@ a:hover {color: #174b7e;}
 /* Header (Title and Logo) */
 .homepage-top .header {
   min-height: 170pt;
-  margin: 20pt 20pt 20pt 20pt; /* top right bottom left */
+  margin: 10pt 20pt 10pt 20pt; /* top right bottom left */
   /* background-color: #4f60711b; */
   /* outline: solid #4f60712b; */
 }
@@ -42,6 +48,7 @@ a:hover {color: #174b7e;}
 }
 .homepage-top .header .logo img {
   width: 170pt;
+  height: 170pt;
   object-fit: cover;
   border-radius: 85pt;
   /* border: 3px solid #ffffff; */
@@ -69,9 +76,10 @@ a:hover {color: #174b7e;}
 
 /* Homepage Style */
 .homepage {
-  width: 768pt;
+  width: calc(100% - 30pt);
+  max-width: 768pt;
   min-height: 100pt;
-  margin: 15pt auto;
+  margin: 8pt auto;
   padding: 20pt 20pt;
   padding-top: 0px;
   border: 1pt hidden #000;
@@ -92,11 +100,16 @@ a:hover {color: #174b7e;}
 /* Bio */
 .homepage .bio {
   margin: 10pt 20pt 10pt 20pt;  /*top right bottom left*/
+  text-align: left;
+}
+.homepage .bio p {
+  margin: 0 0 10pt 0;
 }
 
 /* Publications */
 .homepage .publication {
-  height: 120pt;
+  min-height: 120pt;
+  display: flow-root;
   /* outline: thin solid #e1e1e1; */
   outline: thin solid #4f60712b;
   margin: 10pt 20pt 10pt 20pt; /* top right bottom left */
@@ -113,8 +126,11 @@ a:hover {color: #174b7e;}
   -webkit-box-shadow: 1pt 1pt 2pt #888888;
 }
 .homepage .publication .info {
-  margin: 10pt 20pt 0 180pt;  /* top right bottom left */
+  margin-left: 170pt;
+  margin-right: 20pt;
+  padding-left: 5pt;
   padding-top: 5pt;
+  padding-bottom: 8pt;
   text-align: left;
 }
 .homepage .publication .info .title {
@@ -124,7 +140,8 @@ a:hover {color: #174b7e;}
 /* Posts */
 .homepage .post {
   font-size: 12pt;
-  height: 85pt;
+  min-height: 85pt;
+  display: flow-root;
   margin: 10pt 20pt 10pt 20pt;  /*top right bottom left*/
   /* outline: thin solid #e1e1e1; */
   outline: thin solid #4f60712b;
@@ -152,27 +169,6 @@ a:hover {color: #174b7e;}
   font-size: 10pt;
 }
 
-/* Firula */
-.homepage .bio img {
-  display: none;
-}
-
-.homepage .bio .fake-link {
-    color: #2581e0;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.homepage .bio span.fake-link:hover {
-  color: #174b7e;
-  text-decoration: underline;
-}
-
-.homepage .bio span.fake-link:active img{
-  display: block;
-  margin-top: 20pt;
-}
-
 /* Quote */
 .homepage .quote {
   font-size: 9.5pt;
@@ -187,4 +183,75 @@ a:hover {color: #174b7e;}
   font-style: italic;
   text-align: right;
   margin: 30pt 20pt 0pt 20pt;  /*top right bottom left*/
+}
+
+@media (max-width: 760px) {
+  .homepage-top,
+  .homepage {
+    width: calc(100% - 20pt);
+    padding: 14pt;
+  }
+
+  .homepage-top .header {
+    min-height: 0;
+    margin: 8pt;
+  }
+
+  .homepage-top .header .logo {
+    width: 120pt;
+    float: none;
+    margin-bottom: 14pt;
+  }
+
+  .homepage-top .header .logo img {
+    width: 120pt;
+    height: 120pt;
+    border-radius: 60pt;
+  }
+
+  .homepage-top .header .title,
+  .homepage-top .header .email,
+  .homepage-top .header .links {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .homepage-top .header .title {
+    padding-top: 0;
+    font-size: 24pt;
+  }
+
+  .homepage-top .header .email {
+    font-size: 12pt;
+  }
+
+  .homepage .section {
+    font-size: 20pt;
+    margin: 24pt 8pt 10pt 8pt;
+  }
+
+  .homepage .bio,
+  .homepage .publication,
+  .homepage .post {
+    margin-left: 8pt;
+    margin-right: 8pt;
+  }
+
+  .homepage .publication img,
+  .homepage .post img {
+    float: none;
+    width: 100%;
+    height: auto;
+    max-height: 180pt;
+  }
+
+  .homepage .publication .info,
+  .homepage .post .comment {
+    margin: 0 8pt 10pt 8pt;
+    padding: 5pt 0 0 0;
+  }
+
+  .homepage .quote {
+    margin-left: 8pt;
+  }
 }
